@@ -18,8 +18,8 @@
 input{
     background-color:  transparent;
     //padding: 14px 10px;
-    
     border: none;
+    color: $primary-color !important;
 
     &:focus{
         outline: none !important;
