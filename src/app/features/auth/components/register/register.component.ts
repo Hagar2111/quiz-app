@@ -53,7 +53,7 @@ export class RegisterComponent {
 
       this._AuthService.register(this.registerForm.value).subscribe({
         next:(response)=>{
-         console.log(response)
+        console.log(response)
         this._ToastrService.success(response.message)
 
 
@@ -72,13 +72,13 @@ export class RegisterComponent {
     }
     }
 
-    
+
     passwordMatchValidator(control:AbstractControl){
       return control.get('password')?.value === control.get('confirmPassword')?.value ? null :
       {mismatch:true};
         }
 
-   
+
 
 
 }
