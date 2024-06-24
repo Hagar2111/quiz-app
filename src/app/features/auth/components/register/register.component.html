@@ -18,29 +18,29 @@
             </div>
 
           </div>
-         
+
           <div class="col-3">
             <div class="icon-sign active  cursor-pointer" (click)="handleSignUpClick()">
               <i class="fa-solid fa-user-plus"></i>
               <span>Sign Up</span>
-              
+
             </div>
-            
+
           </div>
-         
+
         </div>
 
-    
-           
-  
+
+
+
               <form
                 [formGroup]="registerForm"
                 (ngSubmit)="register()"
                 class="mt-1"
               >
                 <div class="row">
-                  
-  
+
+
                 <!--first Name-->
                 <div class="col-6">
                   <div class="">
@@ -59,7 +59,7 @@
                       />
                     </div>
                   </div>
-  
+
                   <div
                     *ngIf="
                       registerForm.get('first_name')?.errors &&
@@ -101,7 +101,7 @@
                       />
                     </div>
                   </div>
-  
+
                   <div
                     *ngIf="
                       registerForm.get('last_name')?.errors &&
@@ -124,7 +124,7 @@
                     </p>
                   </div>
                 </div>
-  
+
                 <!--email-->
                 <div class="col-12">
                   <div class="mt-1 ">
@@ -142,7 +142,7 @@
                       />
                     </div>
                   </div>
-  
+
                   <div
                     *ngIf="
                       registerForm.get('email')?.errors &&
@@ -178,7 +178,7 @@
                 <div class="col-12">
                     <div class="">
                       <label for="password">Password</label>
-  
+
                       <div class="input-group ">
                         <i class="fa-solid fa-key"></i>
                         <input
@@ -199,7 +199,7 @@
                         </span>
                       </div>
                     </div>
-  
+
                     <div
                       *ngIf="
                         registerForm.get('password')?.errors &&
@@ -228,6 +228,7 @@
                     </div>
                   </div>
 
+
                     <!-- Confirm Password -->
             <div class="col-12">
               <div>
@@ -251,9 +252,7 @@
               </div>
             </div>
 
-               
-  
-               
+              
 
               </div>
 
@@ -268,13 +267,13 @@
             </button>
 
               </form>
-        
+
       </div>
-  
+
       <div class="col-md-6 fullImage  py-3  d-flex align-items-stretch  ">
         <div class="photo  w-100">
-         
-  
+
+
         </div>
       </div>
     </div>
@@ -282,4 +281,3 @@
   </div>
 
   </section>
-  
