@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as *;
+
+.home-card {
+  border: 1px solid $light-gray;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h5 {
+      margin: 0;
+    }
+
+    a {
+      color: initial;
+      font-size: 0.8rem;
+      font-weight: 600;
+      span {
+        color: $green-color;
+      }
+    }
+  }
+}

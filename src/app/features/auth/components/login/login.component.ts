@@ -36,7 +36,8 @@ export class LoginComponent {
       this._AuthService.login(this.loginForm.value).subscribe({
         next:(res)=>{
           this.loginResponse = res
-          this._ToastrService.success(res.message)
+          this._ToastrService.success(res.message);
+          localStorage.setItem("token", res.data.accessToken)
         },
         error:(err)=>{
           this._ToastrService.error(err.error.message)
