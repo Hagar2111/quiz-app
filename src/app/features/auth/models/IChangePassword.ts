@@ -4,9 +4,17 @@ export interface IChangePassword {
 }
 
 export interface IChangePasswordResponse{
-    message:{
-        name:string;
-        message:string;
-        expiredAt:string;
-    }
+    message:string;
+    data:IChangePasswordResponseData
+}
+
+export interface IChangePasswordResponseData{
+
+    _id:string;
+    first_name:string;
+    last_name:string;
+    email:string;
+    status:string;
+    role:string;
+
 }

@@ -44,7 +44,8 @@ export class LoginComponent {
         complete: ()=>{
           if(this.loginResponse.data.profile.role === "Instructor"){
             this._Router.navigate(['/instructor/dashboard'])
-          } else if(this.loginResponse.data.profile.role === ''){
+          } else if(this.loginResponse.data.profile.role === 'Student'){
+            this._Router.navigate(['/student/dashboard'])
 
           }
         }

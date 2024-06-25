@@ -69,6 +69,14 @@
         background-color: #fff;
     }
 
+        
+    .the-bottom-link{
+        color: #fff;
+        a{
+            color: $green-color;
+        }
+    }
+
     @media screen and (max-width:1200px) {
 
       

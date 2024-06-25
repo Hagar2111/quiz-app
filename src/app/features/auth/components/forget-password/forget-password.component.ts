@@ -47,7 +47,7 @@ constructor(
       this._ToastrService.error(err.error.message, "Error")
     },
     complete:()=>{
-      this._Router.navigate(['/auth/login'])
+      this._Router.navigate(['/auth/reset-password'])
     }
   })
 }
