@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IRegisterResponse } from '../models/IRegister';
+import { ILogin } from '../models/ilogin';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,15 @@ export class AuthService {
     return this._HttpClient.post<IRegisterResponse>('auth/register', data)
   }
 
+
   reset(data: FormGroup): Observable<any> {
     return this._HttpClient.post<IRegisterResponse>('auth/reset-password', data)
   }
+
+login(data: FormGroup):Observable<ILogin>{
+  return this._HttpClient.post<ILogin>('auth/login', data)
+}
+
 
 
 }
