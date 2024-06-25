@@ -3,7 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IRegisterResponse } from '../models/IRegister';
+import { IChangePassword, IChangePasswordResponse } from '../models/IChangePassword';
+import { IForgotPasswordResponse } from '../models/IForgotPassword';
 import { ILogin } from '../models/ilogin';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +30,12 @@ login(data: FormGroup):Observable<ILogin>{
 }
 
 
+changePassword(passwordData: IChangePassword): Observable<IChangePasswordResponse> {
+  return this._HttpClient.post<IChangePasswordResponse>('auth/change-password', passwordData)
+}
+
+forgotPassword(requestEmail: string):  Observable<IForgotPasswordResponse>{
+  return this._HttpClient.post<IForgotPasswordResponse>('auth/forgot-password', requestEmail)
+}
 
 }

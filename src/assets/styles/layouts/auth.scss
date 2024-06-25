@@ -54,17 +54,19 @@
         background-image: url(../../imgs/Image.png);
         background-repeat: no-repeat;
         background-position: center center;
-        border-radius: 1rem;
+        border-radius: 20px;
     }
    
 
     .scroll{
         overflow-y: hidden;
-       
-        
     }
   
     
+    }
+    button{
+        width: 40%;
+        background-color: #fff;
     }
 
     @media screen and (max-width:1200px) {
