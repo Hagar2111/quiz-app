@@ -10,16 +10,22 @@ import { ILogin } from '../models/ilogin';
 })
 export class AuthService {
 
-constructor(private _HttpClient:HttpClient) { }
+  constructor(private _HttpClient: HttpClient) { }
 
 
-register(data:FormGroup):Observable<IRegisterResponse>{
-  return this._HttpClient.post<IRegisterResponse>('auth/register',data)
-}
+  register(data: FormGroup): Observable<IRegisterResponse> {
+    return this._HttpClient.post<IRegisterResponse>('auth/register', data)
+  }
+
+
+  reset(data: FormGroup): Observable<any> {
+    return this._HttpClient.post<IRegisterResponse>('auth/reset-password', data)
+  }
 
 login(data: FormGroup):Observable<ILogin>{
   return this._HttpClient.post<ILogin>('auth/login', data)
 }
+
 
 
 }
