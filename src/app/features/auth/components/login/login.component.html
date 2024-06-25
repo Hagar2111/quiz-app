@@ -1,1 +1,152 @@
-<p>login works!</p>
+<section class="auth">
+  <div class="container-fluid">
+    <div class="row g-4 min-vh-100 ">
+      <div class="col-md-6 p-5">
+        <div>
+          <img src="../../../../../assets/imgs/Logo-white.svg" alt="">
+        </div>
+
+        <h2 class="header">Continue your learning journey with QuizWiz!</h2>
+
+        <div class="row ">
+          <div class="col-3">
+            <div class="icon-sign active">
+              <i class="fa-solid fa-user-tie"></i>
+              <span>Sign in </span>
+            </div>
+
+          </div>
+
+          <div class="col-3">
+            <div class="icon-sign cursor-pointer" routerLink="/auth/register">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Sign Up</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="mt-5">
+
+          <div class="col-12">
+            <div class="mt-1 ">
+              <label for="email">Your email address</label>
+              <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control "
+                  placeholder="Type your email"
+                  id="email"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </div>
+
+            <div
+              *ngIf="
+                loginForm.get('email')?.errors &&
+                loginForm.get('email')?.touched
+              "
+              class="d-flex align-items-center mt-1"
+            >
+              <img
+              src="../../../../../assets/imgs/invalid.png"
+              width="22"
+                height="22"
+                alt
+                class="mx-2"
+              />
+              <p
+                *ngIf="loginForm.get('email')?.getError('required')"
+                class="m-0 text-danger"
+              >
+               email is required
+              </p>
+              <p
+                *ngIf="loginForm.get('email')?.getError('email')"
+                class="m-0 text-danger"
+              >
+              invalid email
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="">
+              <label for="password">Password</label>
+
+              <div class="input-group ">
+                <i class="fa-solid fa-key"></i>
+                <input
+                  formControlName="password"
+                  [type]="hidePassword ? 'password' : 'text'"
+                  class="form-control"
+                   placeholder="Type your password"
+                  id="password"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+                <span>
+                  <i
+                    (click)="hidePassword = !hidePassword"
+                    class="fa-regular fs-5 pe-3 hide"
+                    [class]="hidePassword ? 'fa-eye-slash' : 'fa-eye'"
+                  ></i>
+                </span>
+              </div>
+            </div>
+
+            <div
+              *ngIf="
+                loginForm.get('password')?.errors &&
+                loginForm.get('password')?.touched
+              "
+              class="d-flex align-items-center mt-1"
+            >
+              <img
+              src="../../../../../assets/imgs/invalid.png"
+                width="22"
+                height="22"
+                alt
+                class="mx-2"
+              />
+              <p
+                *ngIf="loginForm.get('password')?.getError('required')"
+                class="text-danger m-0"
+              >
+             password is required                      </p>
+              <p
+                *ngIf="loginForm.get('password')?.getError('pattern')"
+                class="text-danger m-0"
+              >
+              password length must be at least 3 characters long
+                                  </p>
+            </div>
+          </div>
+
+          <button
+          [disabled]="loginForm.invalid "
+          class="primary  my-4 "
+        >
+
+        Sign Up
+        <i class="fa-solid fa-circle-check"></i>
+
+        </button>
+        </form>
+
+      </div>
+      <div class="col-md-6 fullImage  py-3  d-flex align-items-stretch  ">
+        <div class="photo  w-100">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

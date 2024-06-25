@@ -8,19 +8,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
- 
+
     i{
         color: white;
         font-size: 25px
-    }; 
+    };
 }
 
 input{
     background-color:  transparent;
     //padding: 14px 10px;
-    color: #fff;
-    
+    color:#fff !important;
     border: none;
+    color: $primary-color !important;
 
     &:focus{
         outline: none !important;
@@ -33,7 +33,6 @@ input{
         font-size: 14px;
         line-height: 19.1px;
         font-weight: 300;
-
     }
-    
+
 }

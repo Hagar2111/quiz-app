@@ -18,29 +18,29 @@
             </div>
 
           </div>
-         
+
           <div class="col-3">
-            <div class="icon-sign active">
+            <div class="icon-sign active  cursor-pointer" (click)="handleSignUpClick()">
               <i class="fa-solid fa-user-plus"></i>
               <span>Sign Up</span>
-              
+
             </div>
-            
+
           </div>
-         
+
         </div>
 
-    
-           
-  
+
+
+
               <form
                 [formGroup]="registerForm"
                 (ngSubmit)="register()"
                 class="mt-1"
               >
                 <div class="row">
-                  
-  
+
+
                 <!--first Name-->
                 <div class="col-6">
                   <div class="">
@@ -59,7 +59,7 @@
                       />
                     </div>
                   </div>
-  
+
                   <div
                     *ngIf="
                       registerForm.get('first_name')?.errors &&
@@ -101,7 +101,7 @@
                       />
                     </div>
                   </div>
-  
+
                   <div
                     *ngIf="
                       registerForm.get('last_name')?.errors &&
@@ -124,7 +124,7 @@
                     </p>
                   </div>
                 </div>
-  
+
                 <!--email-->
                 <div class="col-12">
                   <div class="mt-1 ">
@@ -142,7 +142,7 @@
                       />
                     </div>
                   </div>
-  
+
                   <div
                     *ngIf="
                       registerForm.get('email')?.errors &&
@@ -178,7 +178,7 @@
                 <div class="col-12">
                     <div class="">
                       <label for="password">Password</label>
-  
+
                       <div class="input-group ">
                         <i class="fa-solid fa-key"></i>
                         <input
@@ -199,7 +199,7 @@
                         </span>
                       </div>
                     </div>
-  
+
                     <div
                       *ngIf="
                         registerForm.get('password')?.errors &&
@@ -227,28 +227,53 @@
                                           </p>
                     </div>
                   </div>
-               
-  
-                <button
-                  [disabled]="registerForm.invalid "
-                  class="primary  my-2 "
-                >
 
-                Sign Up 
-                <i class="fa-solid fa-circle-check"></i>
-                
-                </button>
+
+                    <!-- Confirm Password -->
+            <div class="col-12">
+              <div>
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-group">
+                  <i class="fa-solid fa-key"></i>
+                  <input formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text'" class="form-control" placeholder="Type your password again" id="confirmPassword" aria-label="confirmPassword" />
+                  <span>
+                    <i (click)="hideConfirmPassword = !hideConfirmPassword" class="fa-regular fs-5 pe-3 hide" [class]="hideConfirmPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                  </span>
+                </div>
+              </div>
+              <div *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched" class="d-flex align-items-center mt-1">
+                <img src="../../../../../assets/imgs/invalid.png" width="22" height="22" alt class="mx-2" />
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('required')" class="text-danger m-0">
+                  confirm password is required
+                </p>
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('compare')" class="text-danger m-0">
+                  password do not match
+                </p>
+              </div>
+            </div>
+
+              
 
               </div>
 
+              <button
+              [disabled]="registerForm.invalid "
+              class="primary  mt-3 "
+            >
+
+            Sign Up 
+            <i class="fa-solid fa-circle-check"></i>
+            
+            </button>
+
               </form>
-        
+
       </div>
-  
+
       <div class="col-md-6 fullImage  py-3  d-flex align-items-stretch  ">
         <div class="photo  w-100">
-         
-  
+
+
         </div>
       </div>
     </div>
@@ -256,4 +281,3 @@
   </div>
 
   </section>
-  
