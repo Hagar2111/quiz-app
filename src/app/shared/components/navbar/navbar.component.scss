@@ -1,0 +1,50 @@
+// @import '../../../../../assets/styles/components/button.scss';
+// @import '../../../../../assets/styles/components/input.scss';
+// @import '../../../../../assets/styles/layouts/auth.scss';
+
+
+nav {
+    border-bottom: 1px solid gainsboro;
+    background-color: #fff;
+    // z-index: 4;
+  
+    .main-div {
+      padding: 10px 20px;
+      text-align: center;
+    //   height: 100%;
+  
+      &:not(:last-child) {
+        border-right: 1px solid gainsboro;
+      }
+  
+      &:last-child,
+      &:nth-child(2) {
+        padding-left: 0;
+      }
+  
+  
+      &.route-content {
+        flex-grow: 10;
+        .new-action {
+          color: #000;
+          border-radius: 20px;
+          border: 1px solid gainsboro;
+          padding: 7px 10px;
+        }
+      }
+  
+      &.user-details {
+        flex-grow: 1;
+        .user-role {
+          color: #C5D86D
+        }
+      }
+    }
+    ul{
+        .active{
+            background-color: #FFEDDF;
+            color: #000;
+        }
+    }
+  }
+  
