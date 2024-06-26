@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from './services/home.service';
 import { IStudent } from 'src/app/core/models/IStudent.model';
 import { ToastrService } from 'ngx-toastr';
-import { IQuiz } from 'src/app/core/models/IQuiz.model';
+import { IQuizStudents } from 'src/app/core/models/IQuiz.model';
 import { IGroup } from 'src/app/core/models/IGroup.model';
 import { forkJoin, map, switchMap } from 'rxjs';
 
@@ -11,41 +11,40 @@ import { forkJoin, map, switchMap } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   topStudents: IStudent[] = [];
-  incommingQuiz: (IQuiz & { studentsEnrolled: number })[] = [];
+  incommingQuiz: IQuizStudents[] = [];
 
-  groupRes:IGroup={
+  groupRes: IGroup = {
     _id: "",
     name: "",
     status: "",
     instructor: "",
     max_students: 0,
     students: []
-
   }
 
-  constructor(private _HomeService: HomeService, private _ToastrService: ToastrService){}
+  constructor(private _HomeService: HomeService, private _ToastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.getLookups();
   }
 
-  getLookups(){
-   
+  getLookups() {
+
     this.getTop5Students()
 
     this.getIncomingQuiz()
   }
 
 
-  getTop5Students():void{
+  getTop5Students(): void {
     this._HomeService.getTop5Students().subscribe({
-      next: (res)=>{
+      next: (res) => {
         this.topStudents = res;
       },
-      error: (err)=>{
+      error: (err) => {
         this._ToastrService.error(err.error.message);
       }
     })
@@ -76,6 +75,6 @@ export class HomeComponent implements OnInit{
     });
   }
 
- 
+
 
 }
