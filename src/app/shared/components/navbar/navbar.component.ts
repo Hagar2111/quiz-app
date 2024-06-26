@@ -110,7 +110,7 @@ export class NavbarComponent {
   }
 
   openChangePass(){
-    this._Router.navigate(['/auth/change-password'])
+    this._Router.navigate(['/auth/changePassword'])
   }
 
 }
