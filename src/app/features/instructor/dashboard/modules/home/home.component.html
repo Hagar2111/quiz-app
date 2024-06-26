@@ -65,7 +65,7 @@
                                 <header class="content-title">{{student.first_name + " " + student.last_name |
                                     titlecase}}</header>
                                 <p class="content-subtitle text-lighter-secondary-color">Average score:
-                                    {{student.avg_score}}</p>
+                                    {{student.avg_score.toFixed(2)}}</p>
                             </div>
                             <div class="suffix p-3">
                                 <a routerLink="/instructor/dashboard/students/{{student._id}}"><i
