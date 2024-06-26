@@ -43,7 +43,7 @@ button {
       }
     }
 
-  
+
      &.secondary {
       border: 1px solid $green-color;
       background-color: $green-color;
@@ -56,4 +56,17 @@ button {
       background-color: black;
       }
   }
-   }
+}
+.dashboard-btn{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+  transition: 0.4s;
+  &:hover{
+    background-color: #ccc;
+  }
+
+}
