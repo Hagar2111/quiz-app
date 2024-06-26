@@ -42,9 +42,13 @@ export class LoginComponent {
           this._ToastrService.error(err.error.message)
         },
         complete: ()=>{
+          localStorage.setItem('token',this.loginResponse.data.accessToken)
+          localStorage.setItem('userId',this.loginResponse.data.profile._id)
+          localStorage.setItem('role',this.loginResponse.data.profile.role)
           if(this.loginResponse.data.profile.role === "Instructor"){
-            this._Router.navigate(['/instructor/dashboard'])
+            this._Router.navigate(['/instructor/dashboard/home'])
           } else if(this.loginResponse.data.profile.role === 'Student'){
+
             this._Router.navigate(['/student/dashboard'])
 
           }

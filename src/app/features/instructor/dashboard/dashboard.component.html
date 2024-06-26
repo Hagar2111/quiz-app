@@ -1,10 +1,14 @@
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2">
-        <app-sidebar></app-sidebar>
+      <div class="side-section" [class]="collapseCol? 'col-md-2': 'col-md-1'">
+        <div class="py-3 d-flex align-items-center sidebar-header">
+          <i [class]="collapseCol? 'ms-3': 'm-auto'" class="fa-solid fa-bars fa-2x toggle-icon" (click)="toggleSidebar()"></i>
+          <img *ngIf="collapseCol" class="ms-4" src="../../../../assets/imgs/Logo black.png" alt="">
+        </div>
+        <app-sidebar [collapse]="collapseCol"></app-sidebar>
       </div>
-      <div class="col-md-10">
+      <div [class]="collapseCol? 'col-md-10': 'col-md-11'">
         <div>
           <app-navbar></app-navbar>
         </div>
