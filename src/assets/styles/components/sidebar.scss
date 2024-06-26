@@ -1,9 +1,7 @@
-.sidebar-header{
-  border-bottom: 1px solid #00000033;
-}
-section{
-  border-right: 1px solid #00000033;
-}
+
+// section{
+//   border-right: 1px solid #00000033;
+// }
 
 ul{
 
@@ -22,6 +20,7 @@ ul{
       font-weight: bold;
       span{
         display:block;
+        transition: 0.4s;
         &:first-of-type{
           margin-right: 10px;
           width: 50px;
@@ -33,9 +32,19 @@ ul{
           align-items: center;
 
           svg{
-            fill: #000
+            fill: #000;
+            transition: 0.4s;
           }
         }
+      }
+    }
+    &:hover{
+      .icon{
+        svg{
+          fill:#FFEDDF !important
+        }
+        background-color: #000 !important;
+        transform: rotate(10deg);
       }
     }
   }
