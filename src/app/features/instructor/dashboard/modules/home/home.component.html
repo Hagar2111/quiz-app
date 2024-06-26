@@ -1,1 +1,69 @@
-<p>home works!</p>
+<section class="container-fluid">
+    <div class="row  g-4">
+        <div class="col-lg-6">
+
+            <div class="home-card">
+                <div class="card-header">
+                    <h5>Upcoming 5 quizzes </h5>
+                    <a routerLink="/instructor/dashboard/quizzes">All quizzes <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+                <div class="card-body">
+                    <ng-container *ngIf="incommingQuiz.length">
+                        <div class="view-group my-3" *ngFor="let quiz of incommingQuiz">
+                            <div class="prefix  fs-2">
+                                    <img src="../../../../../../assets/imgs/Quiz img.png" class=" " width="120px" height="120px" alt="">
+                                </div>
+
+
+                                    <div class="view-content align-content-center p-2">
+                                        <header class="content-title header-fw">{{quiz.title}}</header>
+                                        <p class="content-subtitle text-black mt-1">{{quiz.schadule | date: 'dd / MM / yyyy | hh:mm a' }}</p>
+                                        <p>No. of student’s enrolled: {{ quiz.studentsEnrolled }}</p>
+
+                                    </div>
+                                    <div class="suffix p-3">
+                                        <a routerLink="/instructor/dashboard/quizzes/{{quiz._id}}" class="text-black fw-bold "> Open <i class="fa-solid fa-arrow-alt-circle-right text-green-color"></i></a>
+                                    </div>
+                                    
+                            
+                        </div>
+                    </ng-container>
+                    <!-- No students Found -->
+                    <ng-container *ngIf="!incommingQuiz.length">
+                        
+                    </ng-container>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-lg-6">
+            <div class="home-card">
+                <div class="card-header">
+                    <h5>Top 5 Students </h5>
+                    <a routerLink="/instructor/dashboard/students">All Students <span><i class="fa-solid fa-arrow-right"></i></span></a>
+                </div>
+                <div class="card-body">
+                    <!-- There are students to show -->
+                    <ng-container *ngIf="topStudents.length">
+                        <div class="view-group my-3" *ngFor="let student of topStudents">
+                            <div class="prefix p-2 fs-2">
+                                <i class="fa-solid fa-user text-secondary-color"></i>
+                            </div>
+                            <div class="view-content align-content-center p-2">
+                                <header class="content-title">{{student.first_name + " " + student.last_name | titlecase}}</header>
+                                <p class="content-subtitle text-lighter-secondary-color">Average score: {{student.avg_score}}</p>
+                            </div>
+                            <div class="suffix p-3">
+                                <a routerLink="/instructor/dashboard/students/{{student._id}}"><i class="fa-solid fa-arrow-alt-circle-right text-secondary-color"></i></a>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <!-- No students Found -->
+                    <ng-container *ngIf="!topStudents.length">
+                        
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
