@@ -36,8 +36,6 @@ export class LoginComponent {
       this._AuthService.login(this.loginForm.value).subscribe({
         next:(res)=>{
           this.loginResponse = res
-          this._ToastrService.success(res.message);
-          localStorage.setItem("token", res.data.accessToken)
         },
         error:(err)=>{
           this._ToastrService.error(err.error.message)
@@ -50,7 +48,7 @@ export class LoginComponent {
             this._Router.navigate(['/instructor/dashboard/home'])
           } else if(this.loginResponse.data.profile.role === 'Student'){
 
-            this._Router.navigate(['/student/dashboard'])
+            this._Router.navigate(['/student'])
 
           }
         }

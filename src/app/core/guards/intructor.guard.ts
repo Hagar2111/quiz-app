@@ -1,5 +1,14 @@
-import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
 
 export const intructorGuard: CanActivateFn = (route, state) => {
-  return true;
+  const _Route = inject(Router);
+
+  if(localStorage.getItem('token')!== null && localStorage.getItem('role')=='Instructor'){
+    return true;
+  }else{
+    _Route.navigate(['/auth']);
+    return false
+  }
+
 };
