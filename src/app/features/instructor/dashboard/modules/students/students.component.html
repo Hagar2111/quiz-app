@@ -1,0 +1,55 @@
+<section class="container-fluid">
+    <div class="row">
+        <div class="home-card">
+            <div class="card-header">
+                <h5>Student List</h5>
+            </div>
+            <div class="card-body mt-2">
+                <!-- There are students to show -->
+                <div class="d-flex">
+                    <div class="me-2">
+                        <button class="button outline-primary" [ngClass]="{active: tabIndex === 0}"
+                            (click)="navigateTabs(0)">All</button>
+                    </div>
+                    <div class="me-2">
+                        <button class="button outline-primary" [ngClass]="{active: tabIndex === 1}"
+                            (click)="navigateTabs(1)">Without Group</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <ng-container *ngIf="displayedStudents.length">
+                        <div class="col-md-6 py-1" *ngFor="let student of displayedStudents">
+                            <div class="view-group">
+                                <div class="prefix p-2 fs-2">
+                                    <i class="fa-solid fa-user text-secondary-color"></i>
+                                </div>
+                                <div class="view-content align-content-center p-2">
+                                    <header class="content-title">{{student.first_name + " " + student.last_name |
+                                        titlecase}}</header>
+                                    <!-- <p class="content-subtitle text-lighter-secondary-color">Average score:
+                                        {{student.avg_score.toFixed(2)}}</p> -->
+                                </div>
+                                <div class="suffix p-3">
+                                    <div class="d-flex">
+                                        <button class="bg-transparent border-0" *ngIf="!student.group"
+                                            (click)="addToGroup()"><i
+                                                class="fa-solid fa-circle-plus text-secondary-color"></i></button>
+                                        <button class="bg-transparent border-0" (click)="showStudent()"><i
+                                                class="fa-solid fa-arrow-alt-circle-right text-secondary-color"></i></button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <!-- No students Found -->
+                    <ng-container *ngIf="!displayedStudents.length">
+
+                    </ng-container>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

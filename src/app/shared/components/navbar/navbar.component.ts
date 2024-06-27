@@ -16,7 +16,7 @@ export class NavbarComponent {
   @ViewChild('mainNav', { static: true }) mainNav!: ElementRef<HTMLDivElement>;
   routePath: string = '';
   loggedInRole: string = localStorage.getItem('role') ?? '';
-  userName: string = localStorage.getItem('userName') ?? '';
+  userName: string = localStorage.getItem('first_name') ?? '';
   loggedInUser: any = {
     data: {
       accessToken: '',

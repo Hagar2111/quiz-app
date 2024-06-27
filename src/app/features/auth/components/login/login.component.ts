@@ -41,7 +41,10 @@ export class LoginComponent {
           this._ToastrService.error(err.error.message)
         },
         complete: ()=>{
+          //first_name
           localStorage.setItem('token',this.loginResponse.data.accessToken)
+          localStorage.setItem('first_name',this.loginResponse.data.profile.first_name)
+
           localStorage.setItem('userId',this.loginResponse.data.profile._id)
           localStorage.setItem('role',this.loginResponse.data.profile.role)
           localStorage.setItem('userName',this.loginResponse.data.profile.first_name)
