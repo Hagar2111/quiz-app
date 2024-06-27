@@ -1,0 +1,72 @@
+@import '../abstracts/variables.scss';
+
+button {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25.5px;
+    transition: all 0.25s;
+    &.primary {
+      border: 1px solid $primary-color;
+      background-color: $primary-color;
+      color: $secondary-color;
+      transition: 0.4s !important;
+
+
+    &:disabled{
+        background-color: $disabled-primary-color;
+        border: 1px solid $disabled-primary-color;
+        color: $secondary-color;
+        cursor: not-allowed;
+
+        &:hover{
+          background-color: $disabled-primary-color;
+          color: $secondary-color;
+
+        }
+      }
+    &:hover {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    background-color: $secondary-color;
+    }
+}
+    &.outline-primary {
+      border-radius: 96px;
+      border: 1px solid $primary-color;
+      color: $primary-color;
+      &:hover {
+       color: #fff;
+        background-color: $primary-color;
+      }
+    }
+
+
+     &.secondary {
+      border: 1px solid $green-color;
+      background-color: $green-color;
+      color: black;
+      transition: 0.4s !important;
+
+      &:hover {
+      border: 1px solid $green-color;
+      color: $green-color;
+      background-color: black;
+      }
+  }
+}
+.dashboard-btn{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+  transition: 0.4s;
+  &:hover{
+    background-color: #ccc;
+  }
+
+}

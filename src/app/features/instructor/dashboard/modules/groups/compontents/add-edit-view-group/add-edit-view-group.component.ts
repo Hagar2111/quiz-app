@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-edit-view-group.component.scss']
 })
 export class AddEditViewGroupComponent {
+  
 
 }
