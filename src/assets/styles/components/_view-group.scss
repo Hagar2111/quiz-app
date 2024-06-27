@@ -29,10 +29,11 @@
   .view-content {
     grid-column: 2/3;
     .content-title {
-      font-size: 1.125rem;
+      font-size: 1.1rem;
       font-weight: 600;
       line-height: 1.25rem;
       &.header-fw {
+        font-size: 1.125rem;
         font-weight: 700;
       }
     }
