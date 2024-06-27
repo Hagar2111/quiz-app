@@ -44,6 +44,7 @@ export class LoginComponent {
           localStorage.setItem('token',this.loginResponse.data.accessToken)
           localStorage.setItem('userId',this.loginResponse.data.profile._id)
           localStorage.setItem('role',this.loginResponse.data.profile.role)
+          localStorage.setItem('userName',this.loginResponse.data.profile.first_name)
           if(this.loginResponse.data.profile.role === "Instructor"){
             this._Router.navigate(['/instructor/dashboard/home'])
           } else if(this.loginResponse.data.profile.role === 'Student'){
