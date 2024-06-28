@@ -1,0 +1,71 @@
+@import '../../../../../../../../assets/styles/abstracts/variables';
+
+
+
+
+
+.header {
+
+    h5,
+    i {
+        color: $secondary-color;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .close:hover {
+        background-color:$color-red;
+        i {
+            color: white;
+        }
+
+      
+        cursor: pointer;
+    }
+
+}
+
+p{
+    color:$color-red;
+}
+
+.input-group-text,
+.form-control {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: $secondary-color;
+}
+
+.input-group-text {
+    background-color: $primary-color;
+    color: $secondary-color;
+
+}
+
+.form-control {
+    background-color: white;
+}
+.btn{
+    border: none;
+    padding: 0;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.check:hover{
+    background-color: $color-check;
+    cursor: pointer;
+    i {
+        color: white;
+    }
+    }
+
+
+    ul li{
+        list-style-type: none;
+        border: 1px solid  $border-color;
+        border-radius: 10px;
+        
+    }
