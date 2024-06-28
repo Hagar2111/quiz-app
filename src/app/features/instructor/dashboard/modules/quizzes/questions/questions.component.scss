@@ -1,0 +1,30 @@
+@import '../../../../../../../assets/styles/components/buttons.scss';
+
+.questions-holder{
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  table{
+
+    margin-top:20px;
+    i{
+      cursor: pointer;
+      color:#FB7C19;
+      transition: 0.4s;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
+    thead{
+      th{
+        background-color: #000;
+        color:#fff;
+        border-radius: 10px;
+        padding: 10px;
+        // margin: 10px !important
+      }
+    }
+  }
+}
+
+
