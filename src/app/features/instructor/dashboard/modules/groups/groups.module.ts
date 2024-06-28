@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GroupsRoutingModule } from './groups-routing.module';
 import { GroupsComponent } from './groups.component';
 import { AddEditViewGroupComponent } from './compontents/add-edit-view-group/add-edit-view-group.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddEditViewGroupComponent } from './compontents/add-edit-view-group/add
   ],
   imports: [
     CommonModule,
-    GroupsRoutingModule
+    GroupsRoutingModule,
+    SharedModule
   ]
 })
 export class GroupsModule { }

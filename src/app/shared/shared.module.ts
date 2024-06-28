@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+
 import {Component, Inject} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {NgIf} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
-import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
 
 
 
@@ -19,7 +24,8 @@ import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DeletePopupComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +39,11 @@ import {MatSelectModule} from '@angular/material/select';
     NgIf,
     MatDialogModule,
     MatSelectModule
+    HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
+
+
   ],
   exports:[
     ReactiveFormsModule,
@@ -47,6 +58,9 @@ import {MatSelectModule} from '@angular/material/select';
     NgIf,
     MatDialogModule,
     MatSelectModule
+    HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
   ]
 })
 export class SharedModule { }
