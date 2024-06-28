@@ -5,6 +5,7 @@ import { AddEditViewGroupComponent } from './compontents/add-edit-view-group/add
 import { MatDialog } from '@angular/material/dialog';
 import { IUpdateOrAddGroup } from 'src/app/core/models/IGroup.model';
 import { ToastrService } from 'ngx-toastr';
+import { DeletePopupComponent } from 'src/app/shared/components/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-groups',
@@ -75,6 +76,25 @@ export class GroupsComponent implements OnInit{
     })
   }
 
+  deleteGroup(id: string) {
+    this._GroupsService.deleteGroup(id).subscribe({
+      next: (res) => {
+        // console.log(res)
+        this._ToastrService.success(res.message)
+
+      },
+      error: (err) => {
+        this._ToastrService.error(err.error.message)
+
+
+      },
+      complete: () => {
+        this.getAllGroups();
+      }
+
+    })
+  }
+
   openAddViewEditDailog(enterAnimationDuration: string, exitAnimationDuration: string,id: string, add: boolean , view: boolean , edit: boolean ): void {
     const dialogRef = this.dialog.open(AddEditViewGroupComponent, {
       width: '600px',
@@ -114,6 +134,25 @@ export class GroupsComponent implements OnInit{
 
     });
 
+  }
+
+
+  openDeleteDialog(enterAnimationDuration: string, exitAnimationDuration: string,id:string,itname:string,componentName:string): void {
+    const dialo =this.dialog.open(DeletePopupComponent, {
+      width: '500px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data:{
+        comp:componentName,
+        id:id,
+        name:itname
+      }
+    });
+    dialo.afterClosed().subscribe(res=>{
+      if(res){
+       this.deleteGroup(res)
+      }
+    })
   }
 
 }
