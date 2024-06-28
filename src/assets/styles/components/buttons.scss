@@ -12,7 +12,7 @@ button {
       border: 1px solid $primary-color;
       background-color: $primary-color;
       color: $secondary-color;
-      transition: 0.4s !important;
+      transition: 0.4s ;
 
 
     &:disabled{
@@ -44,11 +44,41 @@ button {
     }
 
 
+    &.delete {
+      border-radius: 4px;
+      border: 1px solid $color-red;
+      color: white;
+      background-color: $color-red ;
+
+      transition: 0.4s ;
+
+      &:hover {
+        border: 1px solid $color-red;
+       background-color: white ;
+        color: $color-red ;
+      }
+     }
+
+    &.cancel {
+      border-radius: 4px;
+      border: 1px solid $light-gray-color;
+      color: $light-gray-color;
+      background-color: white ;
+
+      transition: 0.4s ;
+
+      &:hover {
+        border: 1px solid $light-gray-color;
+       background-color: $light-gray-color ;
+        color: white;
+      }
+     }
+
      &.secondary {
       border: 1px solid $green-color;
       background-color: $green-color;
       color: black;
-      transition: 0.4s !important;
+      transition: 0.4s ;
 
       &:hover {
       border: 1px solid $green-color;
