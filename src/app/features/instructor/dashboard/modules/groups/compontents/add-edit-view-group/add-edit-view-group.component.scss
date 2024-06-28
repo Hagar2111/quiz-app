@@ -4,6 +4,7 @@
 
 
 
+
 .header {
 
     h5,
@@ -34,6 +35,17 @@ p{
     font-size: 1.1rem;
     font-weight: 500;
     color: $secondary-color;
+}
+
+input,mat-select{
+
+
+    &:focus{
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: $primary-color;
+    }
+
 }
 
 .input-group-text {
