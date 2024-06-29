@@ -1,0 +1,321 @@
+<section>
+  <div class="container-fluid">
+    <form [formGroup]="questionForm" (ngSubmit)="sendQuesData()">
+    
+      <div class="header d-flex 
+      justify-content-between align-items-center border-bottom   ">
+         <div class="p-3 ">
+              <h5 >{{header}}</h5>
+         </div>
+     
+         <div  
+         class=" d-flex  justify-content-between align-items-center ">
+             <div 
+             *ngIf="!data.view"
+              class="d-inline check p-4
+               border-start d-flex justify-content-center align-items-center ">
+               <button type="submit" class="btn"
+                 [disabled]="questionForm.invalid">
+                 <span class="mx-1 "> <i class="fa-solid fa-check"></i> </span>
+               </button>
+             
+             </div>
+             <div (click)="onNoClick()" class="d-inline p-4
+              close  border-start d-flex justify-content-center align-items-center ">
+                 <span class="mx-1 "> <i class="fa-solid fa-xmark"></i> </span>
+             </div>
+         </div>
+
+     </div>
+
+    <h4 class="mt-3">Details</h4>
+
+      <div class="form-item form-control p-0">
+        <label for="title">Title: </label>
+        <input formControlName="title" id="title" type="text">
+      </div>
+
+
+      <div
+      *ngIf="
+        questionForm.get('title')?.errors &&
+        questionForm.get('title')?.touched
+      "
+      class="d-flex align-items-center mt-1"
+    >
+      <img
+      src="../../../../../assets/imgs/invalid.png"
+      width="22"
+        height="22"
+        alt
+        class="mx-2"
+      />
+      <p
+        *ngIf="questionForm.get('title')?.getError('required')"
+        class="m-0 text-danger"
+      >
+        Title is required
+      </p>
+
+    </div>
+
+
+
+
+
+      <div class="form-item form-control p-0">
+        <label for="desc">Description: </label>
+        <input formControlName="description" id="desc" type="text">
+      </div>
+
+      <div
+      *ngIf="
+        questionForm.get('description')?.errors &&
+        questionForm.get('description')?.touched
+      "
+      class="d-flex align-items-center mt-1"
+    >
+      <img
+      src="../../../../../assets/imgs/invalid.png"
+      width="22"
+        height="22"
+        alt
+        class="mx-2"
+      />
+      <p
+        *ngIf="questionForm.get('description')?.getError('required')"
+        class="m-0 text-danger"
+      >
+        Description is required
+      </p>
+
+    </div>
+      <div formGroupName="options" class="row">
+        <div class="col-md-6">
+          <div class="form-item form-control p-0">
+            <label for="a">A: </label>
+            <input formControlName="A" id="a" type="text">
+          </div>
+
+
+          <div
+          *ngIf="
+            questionForm.get('options')?.get('A')?.errors &&
+            questionForm.get('options')?.get('A')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+            <img
+            src="../../../../../assets/imgs/invalid.png"
+            width="22"
+              height="22"
+              alt
+              class="mx-2"
+            />
+            <p
+              *ngIf="questionForm.get('options')?.get('A')?.getError('required')"
+              class="m-0 text-danger"
+            >
+              Option 1 is required
+            </p>
+
+          </div>
+
+
+        </div>
+        <div class="col-md-6">
+          <div class="form-item form-control p-0">
+            <label for="b">B: </label>
+            <input formControlName="B" id="b" type="text">
+          </div>
+          <div
+          *ngIf="
+            questionForm.get('options')?.get('B')?.errors &&
+            questionForm.get('options')?.get('B')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+            <img
+            src="../../../../../assets/imgs/invalid.png"
+            width="22"
+              height="22"
+              alt
+              class="mx-2"
+            />
+            <p
+              *ngIf="questionForm.get('options')?.get('B')?.getError('required')"
+              class="m-0 text-danger"
+            >
+              Option 2 is required
+            </p>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-item form-control p-0">
+            <label for="c">C: </label>
+            <input formControlName="C" id="c" type="text">
+          </div>
+          <div
+          *ngIf="
+            questionForm.get('options')?.get('C')?.errors &&
+            questionForm.get('options')?.get('C')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+            <img
+            src="../../../../../assets/imgs/invalid.png"
+            width="22"
+              height="22"
+              alt
+              class="mx-2"
+            />
+            <p
+              *ngIf="questionForm.get('options')?.get('C')?.getError('required')"
+              class="m-0 text-danger"
+            >
+              Option 3 is required
+            </p>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-item form-control p-0">
+            <label for="d">D: </label>
+            <input formControlName="D" id="d" type="text">
+          </div>
+          <div
+          *ngIf="
+            questionForm.get('options')?.get('D')?.errors &&
+            questionForm.get('options')?.get('D')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+            <img
+            src="../../../../../assets/imgs/invalid.png"
+            width="22"
+              height="22"
+              alt
+              class="mx-2"
+            />
+            <p
+              *ngIf="questionForm.get('options')?.get('D')?.getError('required')"
+              class="m-0 text-danger"
+            >
+              Option 4 is required
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-10">
+            <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+              <label>Right Answer</label>
+              <mat-select disableRipple formControlName="answer">
+                <mat-option value="A">A</mat-option>
+                <mat-option value="B">B</mat-option>
+                <mat-option value="C">C</mat-option>
+                <mat-option value="D">D</mat-option>
+              </mat-select>
+            </div>
+            <div
+            *ngIf="
+              questionForm.get('answer')?.errors &&
+              questionForm.get('answer')?.touched
+            "
+            class="d-flex align-items-center mt-1"
+          >
+            <img
+            src="../../../../../assets/imgs/invalid.png"
+            width="22"
+              height="22"
+              alt
+              class="mx-2"
+            />
+            <p
+              *ngIf="questionForm.get('answer')?.getError('required')"
+              class="m-0 text-danger"
+            >
+              Answer is required
+            </p>
+
+          </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="col-md-10">
+            <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+              <label>Category type</label>
+              <mat-select disableRipple formControlName="type">
+                <mat-option value="FE">FE</mat-option>
+                <mat-option value="BE">BE</mat-option>
+                <mat-option value="DO">DO</mat-option>
+              </mat-select>
+            </div>
+            <div
+            *ngIf="
+              questionForm.get('type')?.errors &&
+              questionForm.get('type')?.touched
+            "
+            class="d-flex align-items-center mt-1"
+          >
+            <img
+            src="../../../../../assets/imgs/invalid.png"
+            width="22"
+              height="22"
+              alt
+              class="mx-2"
+            />
+            <p
+              *ngIf="questionForm.get('type')?.getError('required')"
+              class="m-0 text-danger"
+            >
+              Type is required
+            </p>
+
+          </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="col-md-10">
+            <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+              <label>Difficulty</label>
+              <mat-select disableRipplen formControlName="difficulty">
+                <mat-option value="easy">easy</mat-option>
+                <mat-option value="medium">medium</mat-option>
+                <mat-option value="hard">hard</mat-option>
+              </mat-select>
+            </div>
+            <div
+            *ngIf="
+              questionForm.get('difficulty')?.errors &&
+              questionForm.get('difficulty')?.touched
+            "
+            class="d-flex align-items-center mt-1"
+          >
+            <img
+            src="../../../../../assets/imgs/invalid.png"
+            width="22"
+              height="22"
+              alt
+              class="mx-2"
+            />
+            <p
+              *ngIf="questionForm.get('difficulty')?.getError('required')"
+              class="m-0 text-danger"
+            >
+            Difficulty is required
+            </p>
+
+          </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

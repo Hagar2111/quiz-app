@@ -16,7 +16,7 @@
                             (click)="navigateTabs(1)">Without Group</button>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                     <ng-container *ngIf="displayedStudents.length">
                         <div class="col-md-6 py-1" *ngFor="let student of displayedStudents">
                             <div class="view-group">
@@ -31,13 +31,36 @@
                                 </div>
                                 <div class="suffix p-3">
                                     <div class="d-flex">
+
                                         <button class="bg-transparent border-0" *ngIf="!student.group"
-                                            (click)="addToGroup()"><i
-                                                class="fa-solid fa-circle-plus text-secondary-color"></i></button>
-                                        <button class="bg-transparent border-0" (click)="showStudent()"><i
-                                                class="fa-solid fa-arrow-alt-circle-right text-secondary-color"></i></button>
+                                            (click)="openAddViewEditDailog(student._id,true,false,false)"><i
+                                                class="fa-regular fa-plus  me-2 text-warning"></i></button>
+
+
+                                        <button class="bg-transparent border-0"
+                                            (click)="openAddViewEditDailog(student._id,false,true,false)">
+                                            <i class="fa-regular fa-eye me-2 text-success"></i>
+
+                                        </button>
+
+
+
+                                        <button class="bg-transparent border-0"
+                                            (click)="openAddViewEditDailog(student._id,false,false,true)"
+                                            *ngIf="student.group">
+                                            <i class="fa-regular fa-pen-to-square me-2 text-warning"></i>
+
+                                        </button>
+
+                                        <button class="bg-transparent border-0"
+                                            (click)="openDeleteDialog(student._id,student.first_name,'student')">
+                                            <i class="fa-regular fa-trash-can text-danger"></i>
+
+                                        </button>
+
 
                                     </div>
+
 
                                 </div>
                             </div>
@@ -48,7 +71,10 @@
 
                     </ng-container>
                 </div>
-
+                <mat-paginator *ngIf="totalCount" #paginator class="demo-paginator" (page)="handlePageEvent($event)"
+                    [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25]" [pageIndex]="pageIndex"
+                    aria-label="Select page">
+                </mat-paginator>
             </div>
         </div>
     </div>

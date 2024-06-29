@@ -1,4 +1,6 @@
 @import '../../../../../../../../assets/styles/abstracts/variables';
+@import '../../../../../../../../assets/styles/components/buttons.scss';
+
 
 
 
@@ -54,6 +56,7 @@ input,mat-select{
 
 }
 
+
 .form-control {
     background-color: white;
 }
@@ -75,9 +78,4 @@ mat-form-field{
     }
 
 
-    ul li{
-        list-style-type: none;
-        border: 1px solid  $border-color;
-        border-radius: 10px;
-        
-    }
+  

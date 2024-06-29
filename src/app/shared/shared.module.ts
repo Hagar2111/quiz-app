@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
+import {Component, Inject} from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {NgIf} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    DeletePopupComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +30,16 @@ import {MatButtonModule} from '@angular/material/button';
     RouterLink,
     RouterLinkActive,
     MatFormFieldModule,
-    MatDialogModule,
     MatInputModule,
+    FormsModule,
     MatButtonModule,
-    FormsModule
+    NgIf,
+    MatDialogModule,
+    MatSelectModule,
+    HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
+    MatPaginatorModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -34,10 +48,16 @@ import {MatButtonModule} from '@angular/material/button';
     SidebarComponent,
     RouterLinkActive,
     MatFormFieldModule,
-    MatDialogModule,
-    MatInputModule,
     MatButtonModule,
     FormsModule
+    MatInputModule,
+    NgIf,
+    MatDialogModule,
+    MatSelectModule,
+    HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }

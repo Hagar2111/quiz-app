@@ -1,0 +1,104 @@
+@import '../../../../../../../../../assets/styles/abstracts/variables';
+
+
+section{
+  min-height: 500px;
+}
+
+
+.form-item{
+  margin-bottom: 10px;
+  label{
+    background-color: #FFEDDF;
+    border-radius: 7px;
+    font-weight: bold;
+    height: 100%;
+    padding: 10px 20px
+  }
+  input{
+    color: #000 !important;
+    margin-left: 10px;
+    width:80%
+  }
+}
+.mat-mdc-select{
+  width: 50%
+}
+
+button{
+  border:none;
+  outline: none;
+  background-color: transparent;
+}
+
+
+
+.header {
+
+  h5,
+  i {
+      color: $secondary-color;
+      font-size: 1.2rem;
+      font-weight: 700;
+  }
+
+  .close:hover {
+      background-color:$color-red;
+      i {
+          color: white;
+      }
+
+    
+      cursor: pointer;
+  }
+
+}
+
+p{
+  color:$color-red;
+}
+
+.input-group-text,
+.form-control {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: $secondary-color;
+}
+
+input,mat-select{
+
+
+  &:focus{
+      outline: none !important;
+      box-shadow: none !important;
+      border-color: $primary-color;
+  }
+
+}
+
+.input-group-text {
+  background-color: $primary-color;
+  color: $secondary-color;
+
+}
+
+.form-control {
+  background-color: white;
+}
+.btn{
+  border: none;
+  padding: 0;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.check:hover{
+  background-color: $color-check;
+  cursor: pointer;
+  i {
+      color: white;
+  }
+  }
+
