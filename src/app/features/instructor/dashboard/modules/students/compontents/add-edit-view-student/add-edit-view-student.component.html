@@ -1,0 +1,101 @@
+
+<div class="container-fluid   h-100 w-100 p-0 ">
+    <form   [formGroup]="addEditGroupForm"  (ngSubmit)="submit()">
+
+    <div class="header d-flex 
+     justify-content-between align-items-center border-bottom   ">
+        <div class="p-3 ">
+             <h5 >{{data.add? 'Add this student to Group':data.view? 'Student Details':'Update Student'}}</h5>
+        </div>
+    
+        <div  
+        class=" d-flex  justify-content-between align-items-center ">
+            <div 
+            *ngIf="data.add || data.edit"
+             class="d-inline check p-4
+              border-start d-flex justify-content-center align-items-center ">
+              <button type="submit" class="btn"
+                [disabled]="addEditGroupForm.invalid">
+                <span class="mx-1 "> <i class="fa-solid fa-check"></i> </span>
+              </button>
+            
+            </div>
+            <div (click)="onNoClick()" class="d-inline p-4
+             close  border-start d-flex justify-content-center align-items-center ">
+                <span class="mx-1 "> <i class="fa-solid fa-xmark"></i> </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row p-3 m-0 ">
+
+         <div class="col-12">
+
+            <div class="text-center">
+                <img src="../../../../../../../../assets/imgs/user.png" class="" alt="">
+
+            </div>
+
+         </div>
+     
+      
+            <div class="input-group col-12 my-2 " >
+            
+                <span class="input-group-text" id="basic-addon1">First Name</span>
+                <input 
+                type="text"
+                [value]="studentDetails.first_name"
+                disabled
+                 class="form-control p-2 text-black" aria-label="Username"
+                    aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group col-12 my-2 " >
+            
+                <span class="input-group-text" id="basic-addon1">Last Name</span>
+                <input 
+                type="text"
+                [value]="studentDetails.last_name"
+                disabled
+                 class="form-control p-2 text-black" aria-label="Username"
+                    aria-describedby="basic-addon1">
+            </div>
+
+         
+
+
+            <div class="input-group col-12 my-2" >
+                <span *ngIf="!data.view" class="input-group-text" id="basic-addon1">{{ (AllGroups.length==0)?'No Groups':'Select Group'}}</span>
+                <span *ngIf="data.view && studentDetails.group" class="input-group-text" id="basic-addon1">Group Name</span>
+
+                 
+                  <mat-select *ngIf="studentDetails.group || !data.view"
+                   formControlName="group"   class="form-control">
+                 
+                    <mat-option  
+                     [value]="group._id" 
+                    *ngFor="let group of AllGroups">
+                     {{group.name}} </mat-option>
+
+                     <ng-container *ngIf="data.edit||data.view" >
+                        <mat-option  [value]="studentDetails.group._id">{{studentDetails.group.name}}</mat-option>
+                       
+                        </ng-container>
+                  </mat-select>
+
+               
+               
+               
+              </div>
+
+              <div class="text-end mt-2" *ngIf="data.view && studentDetails.group">
+                <button class="delete     rounded-2" (click)="submit()">Delete From group</button>
+
+              </div>
+       
+       
+    </div>
+</form>
+
+</div>
+

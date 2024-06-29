@@ -17,9 +17,9 @@
               <p class="m-0">No. of students: {{group.students.length}}</p>
             </div>
             <div class="d-flex align-items-center ">
-              <i (click)="openAddViewEditDailog('1000ms','1000ms',group._id,false,true,false)"  class="fa-regular fa-eye me-3"></i>
-              <i (click)="openAddViewEditDailog('1000ms','1000ms',group._id,false,false,true)" class="fa-regular fa-pen-to-square me-3"></i>
-              <i (click)="openDeleteDialog('1000ms','1000ms',group._id,group.name,'Group')" class="fa-regular fa-trash-can"></i>
+              <i (click)="openAddViewEditDailog('1000ms','1000ms',group._id,false,true,false)"  class="fa-regular fa-eye me-3 text-success"></i>
+              <i (click)="openAddViewEditDailog('1000ms','1000ms',group._id,false,false,true)" class="fa-regular fa-pen-to-square me-3 text-warning"></i>
+              <i (click)="openDeleteDialog('1000ms','1000ms',group._id,group.name,'group')" class="fa-regular fa-trash-can text-danger"></i>
             </div>
           </div>
         </div>
