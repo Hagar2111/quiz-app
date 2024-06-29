@@ -17,8 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
-
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -42,7 +41,7 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
-
+    MatPaginatorModule
 
   ],
   exports:[
@@ -61,6 +60,7 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }

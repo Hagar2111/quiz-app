@@ -5,6 +5,9 @@ import { ToastrService } from 'ngx-toastr';
 import { AddEditViewStudentComponent } from './compontents/add-edit-view-student/add-edit-view-student.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from 'src/app/shared/components/delete-popup/delete-popup.component';
+import { PageEvent } from '@angular/material/paginator';
+import { PaginatorService } from 'src/app/core/services/paginator/paginator.service';
+import { IPager } from 'src/app/core/models/IPager.model';
 
 @Component({
   selector: 'app-students',
@@ -17,55 +20,69 @@ export class StudentsComponent implements OnInit {
   displayedStudents: IStudent[] = [];
   tabIndex: number = 0;
 
-  constructor(private _StudentsService: StudentsService, private _ToastrService: ToastrService,private dialog: MatDialog ,
-    private cdr: ChangeDetectorRef
+  pageIndex: number = 0;
+  pageSize: number = 10;
+  totalCount: number = 0;
+  pager!: IPager;
+
+  constructor(private _StudentsService: StudentsService, private _ToastrService: ToastrService, private dialog: MatDialog,
+    private cdr: ChangeDetectorRef, private _PaginatorService: PaginatorService<IStudent>
   ) { }
 
   ngOnInit(): void {
+    this._PaginatorService.initPaginator(this.pageIndex + 1, this.pageSize);
     this.getAllStudents();
   }
 
   getAllStudents() {
     this._StudentsService.getAllStudents().subscribe({
       next: (res) => {
-        this.students = res;
-        this.displayedStudents = this.students.slice(0, 10);
+        // this.students = res;
+        this._PaginatorService.setRows(res);
+        this.totalCount = res.length;
+        // this.displayedStudents = this.students.slice(0, 10);
       },
       error: (err) => {
         this._ToastrService.error(err.error.message);
+      }, complete: () => {
+        this.getPage();
       }
     })
   }
 
-  getStudentsWithoutGroup(){
+  getStudentsWithoutGroup() {
     this._StudentsService.getStudentsWithoutGroup().subscribe({
       next: (res) => {
-        this.students = res;
-        this.displayedStudents = this.students.slice(0, 10);
+        this._PaginatorService.setRows(res);
+        this.totalCount = res.length;
+        // this.students = res;
+        // this.displayedStudents = this.students.slice(0, 10);
       },
       error: (err) => {
         this._ToastrService.error(err.error.message);
+      }, complete: () => {
+        this.getPage();
       }
     })
   }
 
 
 
-  navigateTabs(tab: number){
-   if(tab === 0) this.getAllStudents()
-  else if(tab === 1) this.getStudentsWithoutGroup();
+  navigateTabs(tab: number) {
+    if (tab === 0) this.getAllStudents()
+    else if (tab === 1) this.getStudentsWithoutGroup();
 
-   this.tabIndex = tab;
-   this.cdr.detectChanges(); // Force change detection
+    this.tabIndex = tab;
+    this.cdr.detectChanges(); // Force change detection
 
   }
 
 
-  openAddViewEditDailog(id: string, add: boolean , view: boolean , edit: boolean ): void {
+  openAddViewEditDailog(id: string, add: boolean, view: boolean, edit: boolean): void {
     const dialogRef = this.dialog.open(AddEditViewStudentComponent, {
       width: '600px',
       minHeight: '300px',
-     
+
       data: {
         id: id,
         add: add,
@@ -76,23 +93,23 @@ export class StudentsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-  
+
       if (result) {
         console.log(result)
-    
-        if(add){
+
+        if (add) {
           //add
 
           this.addToGroup(id, result.group)
 
 
-        }else if(edit){
+        } else if (edit) {
           console.log("add")
 
-        this.editGroupStudent(id,result.group)
+          this.editGroupStudent(id, result.group)
 
-        }else{
-          this.deleteStudentFromGroup(id,result.group)
+        } else {
+          this.deleteStudentFromGroup(id, result.group)
         }
 
       }
@@ -102,10 +119,8 @@ export class StudentsComponent implements OnInit {
 
   }
 
-
-
-  addToGroup(idStudent:string,idGroup:string):void { 
-    this._StudentsService.addStudentToGroup(idStudent,idGroup).subscribe({
+  addToGroup(idStudent: string, idGroup: string): void {
+    this._StudentsService.addStudentToGroup(idStudent, idGroup).subscribe({
       next: (res) => {
         console.log(res)
         this._ToastrService.success(res.message)
@@ -120,8 +135,8 @@ export class StudentsComponent implements OnInit {
 
   }
 
-  editGroupStudent(idStudent:string,idGroup:string):void { 
-    this._StudentsService.updateStudentGroup(idStudent,idGroup,null).subscribe({
+  editGroupStudent(idStudent: string, idGroup: string): void {
+    this._StudentsService.updateStudentGroup(idStudent, idGroup, null).subscribe({
       next: (res) => {
         console.log(res)
         this._ToastrService.success(res.message)
@@ -133,28 +148,27 @@ export class StudentsComponent implements OnInit {
         this.getAllStudents();
       }
     })
-
   }
 
 
-  openDeleteDialog(id:string,itname:string,componentName:string): void {
-    const dialo =this.dialog.open(DeletePopupComponent, {
+  openDeleteDialog(id: string, itname: string, componentName: string): void {
+    const dialo = this.dialog.open(DeletePopupComponent, {
       width: '500px',
-     
-      data:{
-        comp:componentName,
-        id:id,
-        name:itname
+
+      data: {
+        comp: componentName,
+        id: id,
+        name: itname
       }
     });
-    dialo.afterClosed().subscribe(res=>{
-      if(res){
-       this.deleteStudent(res)
+    dialo.afterClosed().subscribe(res => {
+      if (res) {
+        this.deleteStudent(res)
       }
     })
   }
 
-  deleteStudent(idStudent:string):void { 
+  deleteStudent(idStudent: string): void {
     this._StudentsService.deleteStudent(idStudent).subscribe({
       next: (res) => {
         console.log(res)
@@ -171,8 +185,8 @@ export class StudentsComponent implements OnInit {
 
   }
 
-  deleteStudentFromGroup(idStudent:string,idGroup:string):void { 
-    this._StudentsService.deleteStudentFromGroup(idStudent,idGroup).subscribe({
+  deleteStudentFromGroup(idStudent: string, idGroup: string): void {
+    this._StudentsService.deleteStudentFromGroup(idStudent, idGroup).subscribe({
       next: (res) => {
         console.log(res)
         this._ToastrService.success(res.message)
@@ -182,10 +196,29 @@ export class StudentsComponent implements OnInit {
       },
       complete: () => {
         this.navigateTabs(0);
-      //  [ngClass]="{active: tabIndex === 0}"     
-       }
+        //  [ngClass]="{active: tabIndex === 0}"     
+      }
     })
 
   }
+
+  getPage() {
+    let obj = this._PaginatorService.getPage();
+    if (obj) {
+      this.pager = obj?.pager;
+      this.displayedStudents = obj?.pageOfRows;
+    }
+  }
+
+  handlePageEvent(event: PageEvent) {
+    if (this.pageSize !== event.pageSize) this._PaginatorService.setPageSize(event.pageSize);
+    if (this.pageIndex !== event.pageIndex) this._PaginatorService.setPageNumber(event.pageIndex + 1);
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+
+    this.getPage();
+  }
+
+
 
 }
