@@ -1,25 +1,34 @@
 <section>
-  <div class="container">
+  <div class="container-fluid">
     <form [formGroup]="questionForm" (ngSubmit)="sendQuesData()">
-      <div class="row align-items-center header py-3">
-        <div class="col-md-10">
-          <div>
-            <h3> {{header}} </h3>
-          </div>
-        </div>
-        <div class="col-md-1 border-end border-start cursor-pointer">
-          <button type="submit">
-            <i class="fa-solid fa-check fa-2x"></i>
-          </button>
-        </div>
-        <div class="col-md-1 cursor-pointer" (click)="onNoClick()">
-          <div>
-            <i class="fa-solid fa-xmark fa-2x"></i>
-          </div>
-        </div>
-      </div>
+    
+      <div class="header d-flex 
+      justify-content-between align-items-center border-bottom   ">
+         <div class="p-3 ">
+              <h5 >{{header}}</h5>
+         </div>
+     
+         <div  
+         class=" d-flex  justify-content-between align-items-center ">
+             <div 
+             *ngIf="!data.view"
+              class="d-inline check p-4
+               border-start d-flex justify-content-center align-items-center ">
+               <button type="submit" class="btn"
+                 [disabled]="questionForm.invalid">
+                 <span class="mx-1 "> <i class="fa-solid fa-check"></i> </span>
+               </button>
+             
+             </div>
+             <div (click)="onNoClick()" class="d-inline p-4
+              close  border-start d-flex justify-content-center align-items-center ">
+                 <span class="mx-1 "> <i class="fa-solid fa-xmark"></i> </span>
+             </div>
+         </div>
 
-    <h4>Details</h4>
+     </div>
+
+    <h4 class="mt-3">Details</h4>
 
       <div class="form-item form-control p-0">
         <label for="title">Title: </label>

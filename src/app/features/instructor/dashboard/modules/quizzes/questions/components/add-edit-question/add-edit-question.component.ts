@@ -14,34 +14,81 @@ export class AddEditQuestionComponent implements OnInit{
 
   header: string = ''
   quesId:string= ''
-  currentQuestion!: ICurrentQuestion
+  currentQuestion: ICurrentQuestion={
+    _id: '',
+    title: '',
+    description: '',
+    options: {
+      A: '',
+      B: '',
+      C: '',
+      D: '',
+      _id: '',
+    },
+    answer: '',
+    status: '',
+    instructor: '',
+    difficulty: '',
+    points: 0,
+    type: '',  }
+
+    questionForm:FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<AddEditQuestionComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
     private _QuestionsService:QuestionsService,
     private _ToastrService:ToastrService
-  ){}
+  ){
+    this.questionForm = new FormGroup({
+      title: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      options: new FormGroup({
+        A: new FormControl('', Validators.required),
+        B: new FormControl('', Validators.required),
+        C: new FormControl('', Validators.required),
+        D: new FormControl('', Validators.required),
+      }),
+      answer: new FormControl('', Validators.required),
+      difficulty: new FormControl('', Validators.required),
+      type: new FormControl('', Validators.required),
+    })
+  }
 
 
   ngOnInit(): void {
-    this.quesId = this.data
-    if(this.data){
+
+    if(this.data.id){
+      this.quesId=this.data.id
+      console.log(this.data.id)
       this.header = 'Update question'
       this.getCurrentQues()
+
+      if(this.data.view){
+        this.header = 'View question'
+        this.questionForm.disable();
+
+
+      }
     }else{
       this.header = 'Set up a new question'
     }
   }
 
   getCurrentQues():void{
+    console.log('getCurrentQues')
+
     this._QuestionsService.getQuestionById(this.quesId).subscribe({
       next: (res)=>{
         this.currentQuestion = res
       },error: (err)=>{
-        
+
+        console.log(err)
+        console.log('errr')
+
       },
       complete:()=>{
+        console.log('patch')
         this.questionForm.patchValue({
           title: this.currentQuestion.title,
           description: this.currentQuestion.description,
@@ -60,24 +107,12 @@ export class AddEditQuestionComponent implements OnInit{
   }
 
 
-  questionForm: FormGroup = new FormGroup({
-    title: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    options: new FormGroup({
-      A: new FormControl('', Validators.required),
-      B: new FormControl('', Validators.required),
-      C: new FormControl('', Validators.required),
-      D: new FormControl('', Validators.required),
-    }),
-    answer: new FormControl('', Validators.required),
-    difficulty: new FormControl('', Validators.required),
-    type: new FormControl('', Validators.required),
-  })
+
 
 
   sendQuesData():void{
     if(this.questionForm.valid){
-      if(this.data){
+      if(this.data.id){
         this._QuestionsService.updateQuestion(this.quesId, this.questionForm.value).subscribe({
           next: (res)=>{
             console.log(res)

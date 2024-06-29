@@ -33,23 +33,23 @@
                                     <div class="d-flex">
 
                                         <button class="bg-transparent border-0" *ngIf="!student.group"
-                                        (click)="openAddViewEditDailog('1000ms','1000ms',student._id,true,false,false)"><i
+                                        (click)="openAddViewEditDailog(student._id,true,false,false)"><i
                                                 class="fa-regular fa-plus  me-2 text-warning"></i></button>
 
 
-                                        <button class="bg-transparent border-0" (click)="openAddViewEditDailog('1000ms','1000ms',student._id,false,true,false)">
+                                        <button class="bg-transparent border-0" (click)="openAddViewEditDailog(student._id,false,true,false)">
                                             <i   class="fa-regular fa-eye me-2 text-success"></i>
 
                                             </button>
 
                                                
 
-                                                <button class="bg-transparent border-0" (click)="openAddViewEditDailog('1000ms','1000ms',student._id,false,false,true)"  *ngIf="student.group">
+                                                <button class="bg-transparent border-0" (click)="openAddViewEditDailog(student._id,false,false,true)"  *ngIf="student.group">
                                                  <i class="fa-regular fa-pen-to-square me-2 text-warning"></i>
 
                                                 </button>
 
-                                                <button class="bg-transparent border-0" (click)="openDeleteDialog('1000ms','1000ms',student._id,student.first_name,'student')">
+                                                <button class="bg-transparent border-0" (click)="openDeleteDialog(student._id,student.first_name,'student')">
                                                     <i  class="fa-regular fa-trash-can text-danger"></i>
 
                                                 </button>

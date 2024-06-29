@@ -95,12 +95,11 @@ export class GroupsComponent implements OnInit{
     })
   }
 
-  openAddViewEditDailog(enterAnimationDuration: string, exitAnimationDuration: string,id: string, add: boolean , view: boolean , edit: boolean ): void {
+  openAddViewEditDailog(id: string, add: boolean , view: boolean , edit: boolean ): void {
     const dialogRef = this.dialog.open(AddEditViewGroupComponent, {
       width: '600px',
       minHeight: '300px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+    
       data: {
         id: id,
         add: add,
@@ -137,11 +136,10 @@ export class GroupsComponent implements OnInit{
   }
 
 
-  openDeleteDialog(enterAnimationDuration: string, exitAnimationDuration: string,id:string,itname:string,componentName:string): void {
+  openDeleteDialog(id:string,itname:string,componentName:string): void {
     const dialo =this.dialog.open(DeletePopupComponent, {
       width: '500px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+    
       data:{
         comp:componentName,
         id:id,

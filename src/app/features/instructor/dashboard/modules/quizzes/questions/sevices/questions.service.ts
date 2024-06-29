@@ -29,4 +29,9 @@ export class QuestionsService {
   updateQuestion(id: string, data: FormGroup):Observable<IUpdateQuestion>{
     return this._HttpClient.put<IUpdateQuestion>(`question/${id}`, data)
   }
+
+  deleteQuestion(id: string):Observable<any>{
+    return this._HttpClient.delete(`question/${id}`)
+  }
+
 }

@@ -20,9 +20,10 @@
         <td>{{ques.description}}</td>
         <td>{{ques.difficulty}}</td>
         <td>
-          <i class="fa-solid fa-eye me-3" ></i>
-          <i class="fa-regular fa-pen-to-square me-3" (click)="openAddEditDialog(ques._id)"></i>
-          <i class="fa-regular fa-trash-can"></i>
+          <i (click)="openAddEditDialog(ques._id,true)"  class="fa-regular fa-eye me-3 text-success"></i>
+              <i (click)="openAddEditDialog(ques._id)" class="fa-regular fa-pen-to-square me-3 text-warning"></i>
+              <i (click)="openDeleteDialog(ques._id,ques.title,'question')" class="fa-regular fa-trash-can text-danger"></i>
+            
         </td>
       </tr>
     </tbody>
