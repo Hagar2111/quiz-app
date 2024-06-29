@@ -43,7 +43,7 @@ export class QuestionsComponent implements OnInit{
 
       }    });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => { 
       console.log('The dialog was closed');
       this.getAllQuestions()
     });

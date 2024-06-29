@@ -1,4 +1,5 @@
 @import '../../../../../../../../../assets/styles/abstracts/variables';
+@import '../../../../../../../../../assets/styles/components/popup-input.scss';
 
 
 section{
@@ -6,21 +7,7 @@ section{
 }
 
 
-.form-item{
-  margin-bottom: 10px;
-  label{
-    background-color: #FFEDDF;
-    border-radius: 7px;
-    font-weight: bold;
-    height: 100%;
-    padding: 10px 20px
-  }
-  input{
-    color: #000 !important;
-    margin-left: 10px;
-    width:80%
-  }
-}
+
 .mat-mdc-select{
   width: 50%
 }
