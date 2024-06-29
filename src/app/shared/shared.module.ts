@@ -38,7 +38,7 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
     MatButtonModule,
     NgIf,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
@@ -57,7 +57,7 @@ import { DeletePopupComponent } from './components/delete-popup/delete-popup.com
     MatButtonModule,
     NgIf,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
