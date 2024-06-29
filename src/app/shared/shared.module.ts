@@ -49,7 +49,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RouterLinkActive,
     MatFormFieldModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
     MatInputModule,
     NgIf,
     MatDialogModule,
