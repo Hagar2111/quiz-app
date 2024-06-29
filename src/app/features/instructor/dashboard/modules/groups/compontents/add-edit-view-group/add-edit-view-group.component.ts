@@ -26,7 +26,6 @@ export class AddEditViewGroupComponent {
 
   
   addEditGroupForm!: FormGroup ;
-  //will be edited
 
   allStudentsWithoutGroup!:any ;
 
