@@ -6,66 +6,25 @@
             <thead>
                 <tr class="">
                     <th>Title</th>
-                    <th>Group name</th>
-                    <th>No. of persons in group</th>
+                    <th>Code</th>
+                    <th>Type</th>
                     <th>Participants</th>
                     <th>Date</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of allResults">
-                    <td class="">{{item.quiz.title}}</td>
-                    <td>{{item.groupName}}</td>
-                    <td>{{item.studentsEnrolled}}</td>
-                    <td>{{item.participants.length}}</td>
-                    <td>{{item.quiz.createdAt| date:'dd/mm/yyyy'}}</td>
+                <tr *ngFor="let result of allResults">
+                    <td class="">{{result.quiz.title}}</td>
+                    <td>{{result.quiz.code}}</td>
+                    <td>{{result.quiz.type}}</td>
+                    <td>{{result.participants.length}}</td>
+                    <td>{{result.quiz.createdAt| date:'dd/mm/yyyy'}}</td>
                     <td>
                         <button class="secondary"  routerLink="../results/result-view" >
                             View
                         </button>
                     </td>
-                </tr>
-                <tr>
-                    <td >Assembly language</td>
-                    <td>Group 1</td>
-                    <td>23 persons</td>
-                    <td>20 participants</td>
-                    <td>12 / 02 / 2023</td>
-                    <td><button class="secondary"  routerLink="../results/result-view" >
-                            View
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td >Assembly language</td>
-                    <td>Group 1</td>
-                    <td>23 persons</td>
-                    <td>20 participants</td>
-                    <td>12 / 02 / 2023</td>
-                    <td><button class="secondary"  routerLink="../results/result-view" >
-                            View
-                        </button></td>
-                </tr>
-                <tr>
-                    <td class="">Assembly language</td>
-                    <td>Group 1</td>
-                    <td>23 persons</td>
-                    <td>20 participants</td>
-                    <td>12 / 02 / 2023</td>
-                    <td><button class="secondary"  routerLink="../results/result-view" >
-                            View
-                        </button></td>
-                </tr>
-                <tr>
-                    <td class="">Assembly language</td>
-                    <td>Group 1</td>
-                    <td>23 persons</td>
-                    <td>20 participants</td>
-                    <td>12 / 02 / 2023</td>
-                    <td><button class="secondary"  routerLink="../results/result-view" >
-                            View
-                        </button></td>
                 </tr>
             </tbody>
         </table>

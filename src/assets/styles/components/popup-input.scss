@@ -1,0 +1,16 @@
+.form-item{
+  margin-bottom: 10px;
+  padding: 0 !important;
+  label{
+    background-color: #FFEDDF;
+    border-radius: 7px;
+    font-weight: bold;
+    height: 100%;
+    padding: 10px 20px
+  }
+  input{
+    color: #000 !important;
+    margin-left: 10px;
+    width:75%
+  }
+}

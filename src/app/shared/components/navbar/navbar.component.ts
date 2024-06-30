@@ -5,6 +5,8 @@ import { filter } from 'rxjs/operators';
 import { ILogin, Data, Profile, ILogoutRes, IUpdateProfileReq, IUpdateProfileRes, IUpdateProfileResData } from '../../../features/auth/models/ilogin';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateProfileComponent } from 'src/app/features/instructor/dashboard/components/update-profile/update-profile.component';
 
 
 @Component({
@@ -42,6 +44,7 @@ export class NavbarComponent {
     private _Router: Router, 
     private _AuthService: AuthService,
     private _ToastrService: ToastrService,
+    public dialog: MatDialog
     ) {  }
 
   ngOnInit(): void {
@@ -91,9 +94,19 @@ export class NavbarComponent {
 
 
   
-  onUpdateProfile(){
-    this._Router.navigate(['/auth/update-profile'])
+
+
+  onUpdateProfile(): void {
+    const dialogRef = this.dialog.open(UpdateProfileComponent, {
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => { 
+      console.log('The dialog was closed');
+      // this.getAllQuestions()
+    });
   }
+
 
   onLogout(){
     this._AuthService.logout().subscribe({
