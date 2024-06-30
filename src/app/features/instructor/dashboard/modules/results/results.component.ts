@@ -14,7 +14,7 @@ import { forkJoin, map, switchMap } from 'rxjs';
 })
 export class ResultsComponent {
   
-  allResults: IQuizGroup[]=[];
+  allResults: IResults[]=[];
   allGroups: IAllGroups[]=[];
   allTableData:any[]=[]
 
@@ -24,22 +24,21 @@ export class ResultsComponent {
     private _ToastrService:ToastrService
   ){
     this.getResults();
-    // this.getGroupDetails();
   }
   
   
 
-  // getResults(){
-  //   this._ResultsService.getAllResults().subscribe({
-  //     next:(res) => {
-  //       this.allResults = res;
-  //       console.log(this.allResults);
-  //     },
-  //     error:(err:HttpErrorResponse)=>{
-  //       this._ToastrService.error(err.error.message);
-  //     }
-  //   })
-  // }
+  getResults(){
+    this._ResultsService.getAllResults().subscribe({
+      next:(res) => {
+        this.allResults = res;
+        console.log(this.allResults);
+      },
+      error:(err:HttpErrorResponse)=>{
+        this._ToastrService.error(err.error.message);
+      }
+    })
+  }
 
   
 
@@ -56,28 +55,28 @@ export class ResultsComponent {
   // }
 
   
-  getResults(): void {
-    this._ResultsService.getAllResults().pipe(
-      switchMap(quizzes => {
-        const quizObservables = quizzes.map(quiz => {
-          return this._GroupsService.getGroupById(quiz.quiz.group).pipe(
-            map(group => ({
-              ...quiz,
-              groupName: group.name,
-              studentsEnrolled: group.students.length
-            }))
-          );
-        });
-        return forkJoin(quizObservables);
-      })
-    ).subscribe({
-      next: (res) => {
-        this.allResults = res;
-      },
-      error: (err) => {
-        this._ToastrService.error(err.error.message);
-      }
-    });
-  }
+//   getResults(): void {
+//     this._ResultsService.getAllResults().pipe(
+//       switchMap(quizzes => {
+//         const quizObservables = quizzes.map(quiz => {
+//           return this._GroupsService.getGroupById(quiz.quiz.group).pipe(
+//             map(group => ({
+//               ...quiz,
+//               groupName: group.name,
+//               studentsEnrolled: group.students.length
+//             }))
+//           );
+//         });
+//         return forkJoin(quizObservables);
+//       })
+//     ).subscribe({
+//       next: (res) => {
+//         this.allResults = res;
+//       },
+//       error: (err) => {
+//         this._ToastrService.error(err.error.message);
+//       }
+//     });
+//   }
  
-}
+ }
