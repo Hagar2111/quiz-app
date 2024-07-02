@@ -63,11 +63,15 @@ export class NavbarComponent {
 
   private handleRouteChange(): void {
     const fullPath = this._Router.url;
+
   
     const segments = fullPath.split('/');
 
     if (segments.length > 0) {
-      const specificSegment = segments[segments.length - 1];
+      let specificSegment = segments[segments.length - 1];
+
+      if(specificSegment=='listQuiz') {
+        specificSegment='Quizzes'}
       this.routePath = specificSegment;
     }
   }

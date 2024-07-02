@@ -7,6 +7,8 @@ import { forkJoin, map, switchMap } from 'rxjs';
 import { group } from '@angular/animations';
 import { ToastrService } from 'ngx-toastr';
 import { IQuizStudents } from 'src/app/core/models/IQuiz.model';
+import { IResults } from '../results/model/IResults';
+import { ResultsService } from '../results/services/results.service';
 
 @Component({
   selector: 'app-quizzes',
@@ -19,12 +21,18 @@ export class QuizzesComponent implements OnInit{
   constructor(
     private QuezzesService:QuezzesService,
     private _HomeService: HomeService,
-    public dialog: MatDialog, private _ToastrService: ToastrService
+    public dialog: MatDialog, private _ToastrService: ToastrService,
+    private _ResultsService:ResultsService,
+
   ){}
   ngOnInit(): void {
     this.getIncomingQuiz()
+    this.getResults();
+
   }
 
+
+  allResults: IResults[]=[];
 
 
 
@@ -51,4 +59,15 @@ export class QuizzesComponent implements OnInit{
     });
   }
 
+  getResults(){
+    this._ResultsService.getAllResults().subscribe({
+      next:(res) => {
+        this.allResults = res;
+        console.log(this.allResults);
+      },
+      error:(err)=>{
+        this._ToastrService.error(err.error.message);
+      }
+    })
+  }
 }
