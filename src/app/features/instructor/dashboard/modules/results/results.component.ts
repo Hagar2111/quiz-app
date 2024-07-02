@@ -15,8 +15,6 @@ import { forkJoin, map, switchMap } from 'rxjs';
 export class ResultsComponent {
   
   allResults: IResults[]=[];
-  allGroups: IAllGroups[]=[];
-  allTableData:any[]=[]
 
   constructor(
     private _ResultsService:ResultsService,

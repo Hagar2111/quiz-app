@@ -1,0 +1,58 @@
+@import '../../../../../../../../assets/styles/abstracts/variables';
+// @import '../../../../../../../../assets/styles/components/buttons.scss';
+
+section{
+    h1{
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-transform: capitalize;
+    }
+
+    .col-lg-6{
+        border: 1px solid #0000004D;
+        border-radius: 20px;
+
+        article{
+            div:not(:last-of-type){
+                width: 80%;
+                border: 1px solid #0000004D;
+                border-radius: 20px;
+                margin-bottom: 1rem;
+
+                span{
+                    border-radius: 20px;
+                    padding: 1rem;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: #000000;
+                    &:first-of-type{
+                        background-color: $primary-color ;
+                    }
+                }
+            }
+            div{
+                input{
+                    margin-right: 0.5rem;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+                
+            }
+            
+            button{
+                background-color: #000000;
+                color: #fff;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: 700;
+                padding: 0.2rem 1.2rem;
+                &:hover{
+                    background-color: $primary-color;
+                    color: #000000;
+                    transition: 0.4s ;
+                }
+            }
+        }
+    }
+}
+
