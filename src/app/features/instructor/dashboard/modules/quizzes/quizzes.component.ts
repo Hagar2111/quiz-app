@@ -13,5 +13,4 @@ export class QuizzesComponent {
     public dialog: MatDialog
   ){}
 
-  
 }

@@ -32,7 +32,7 @@ export interface IquizDetails{
     questions: IQuestions[];
     schadule:string;
     duration:number;
-    score_per_question:5;
+    score_per_question:number;
     type:string;
     difficulty:string;
     updatedAt:string;
