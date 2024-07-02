@@ -1,0 +1,12 @@
+<section class="text-center p-4">
+  <i class="fa-solid fa-circle-check fa-3x py-3"></i>
+  <h3 class="fw-bold h5">Quiz was successfully created</h3>
+  <div class="form-item">
+    <label for="code">CODE: </label>
+    <input class="text-black" id="code" matInput placeholder="Enter text to copy" [(ngModel)]="code" readonly>
+    <mat-icon class="me-4" matSuffix (click)="copyText()">content_copy</mat-icon>
+  </div>
+  <p *ngIf="copySuccess">{{ copySuccessMessage }}</p>
+
+  <button (click)="onNoClick()">Close</button>
+</section>
