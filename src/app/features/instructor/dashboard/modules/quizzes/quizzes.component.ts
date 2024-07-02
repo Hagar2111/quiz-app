@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { QuezzesService } from './services/quezzes.service';
+import { AddEditQuizzComponent } from './components/add-edit-quizz/add-edit-quizz.component';
 
 @Component({
   selector: 'app-quizzes',
@@ -13,34 +14,17 @@ export class QuizzesComponent {
     public dialog: MatDialog
   ){}
 
-  
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(AddEditQuizComponent, {
-  //     data: {name: this.categoryItem},
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     console.log(result);
+  openAddEditDialog(id?:string,view?:boolean): void {
+    const dialogRef = this.dialog.open(AddEditQuizzComponent, {
       
-  //     if(result){
-  //       this.addCategory(result);
-  //     }
-  //   });
-  // }
+      data: {    }
+    });
 
-  
-  // addCategory(categoryName:string){
+    dialogRef.afterClosed().subscribe(result => { 
+      console.log('The dialog was closed');
+      
+    });
+  }
 
-  //   this._CategoryService.onAddCategory(categoryName).subscribe({
-  //    next:(res) => {
-  //      console.log(res);
-  //    }, error:() => {
- 
-  //    }, complete:() => {
-  //      this.getCategoryData()
-  //    }
- 
-  //   })
-  //  }
+
 }

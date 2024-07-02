@@ -11,8 +11,8 @@ export class QuezzesService {
 constructor(private _HttpClient:HttpClient) { }
 
 
-onAddQuiz(data:FormData):Observable<IQuizResponse>{
-  return this._HttpClient.post<IQuizResponse>('quiz', data)
+onAddQuiz(data:FormData):Observable<any>{
+  return this._HttpClient.post('quiz', data)
 }
 
 }

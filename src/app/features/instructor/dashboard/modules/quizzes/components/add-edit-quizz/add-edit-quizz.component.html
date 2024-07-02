@@ -1,0 +1,332 @@
+<section>
+  <div class="container">
+    <form [formGroup]="quizzForm" (ngSubmit)="sendQuizzData()">
+      <div class="header d-flex
+      justify-content-between align-items-center border-bottom   ">
+         <div class="p-3 ">
+              <h5 >{{header}}</h5>
+         </div>
+
+         <div
+         class=" d-flex  justify-content-between align-items-center ">
+             <div
+              class="d-inline check p-4
+               border-start d-flex justify-content-center align-items-center ">
+               <button type="submit" class="btn">
+                 <span class="mx-1 "> <i class="fa-solid fa-check"></i> </span>
+               </button>
+
+             </div>
+             <div (click)="onNoClick()" class="d-inline p-4
+              close cursor-pointer border-start d-flex justify-content-center align-items-center ">
+                 <span class="mx-1 "> <i class="fa-solid fa-xmark"></i> </span>
+             </div>
+         </div>
+
+     </div>
+
+     <h4 class="mt-3 h5">Details</h4>
+
+      <div class="form-item form-control p-0">
+        <label for="title">Title: </label>
+        <input formControlName="title" id="title" type="text">
+      </div>
+
+      <div
+    *ngIf="
+      quizzForm.get('title')?.errors &&
+      quizzForm.get('title')?.touched
+    "
+    class="d-flex align-items-center mt-1"
+    >
+    <img
+    src="../../../../../assets/imgs/invalid.png"
+    width="22"
+      height="22"
+      alt
+      class="mx-2"
+    />
+    <p
+      *ngIf="quizzForm.get('title')?.getError('required')"
+      class="m-0 text-danger"
+    >
+      Title is required
+    </p>
+  </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+            <label class="fs-6">Duration <span>(in minutes)</span></label>
+            <mat-select disableRipple formControlName="duration">
+              <mat-option value="10">10</mat-option>
+              <mat-option value="20">20</mat-option>
+              <mat-option value="30">30</mat-option>
+              <mat-option value="40">40</mat-option>
+            </mat-select>
+          </div>
+
+          <div
+          *ngIf="
+            quizzForm.get('duration')?.errors &&
+            quizzForm.get('duration')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+          <img
+          src="../../../../../assets/imgs/invalid.png"
+          width="22"
+            height="22"
+            alt
+            class="mx-2"
+          />
+          <p
+            *ngIf="quizzForm.get('duration')?.getError('required')"
+            class="m-0 text-danger"
+          >
+          Duration is required
+          </p>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+            <label class="fs-6">No. of questions</label>
+            <mat-select disableRipple formControlName="questions_number" >
+              <mat-option value="1">1</mat-option>
+              <mat-option value="10">10</mat-option>
+              <mat-option value="15">15</mat-option>
+              <mat-option value="20">20</mat-option>
+            </mat-select>
+          </div>
+          
+          <div
+          *ngIf="
+            quizzForm.get('questions_number')?.errors &&
+            quizzForm.get('questions_number')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+          <img
+          src="../../../../../assets/imgs/invalid.png"
+          width="22"
+            height="22"
+            alt
+            class="mx-2"
+          />
+          <p
+            *ngIf="quizzForm.get('questions_number')?.getError('required')"
+            class="m-0 text-danger"
+          >
+          Questions number is required
+          </p>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+            <label class="fs-6">Score per question</label>
+            <mat-select disableRipple formControlName="score_per_question" >
+              <mat-option value="1">1</mat-option>
+              <mat-option value="2">2</mat-option>
+              <mat-option value="3">3</mat-option>
+              <mat-option value="4">4</mat-option>
+              <mat-option value="5">5</mat-option>
+            </mat-select>
+          </div>
+
+          <div
+          *ngIf="
+            quizzForm.get('score_per_question')?.errors &&
+            quizzForm.get('score_per_question')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+          <img
+          src="../../../../../assets/imgs/invalid.png"
+          width="22"
+            height="22"
+            alt
+            class="mx-2"
+          />
+          <p
+            *ngIf="quizzForm.get('score_per_question')?.getError('required')"
+            class="m-0 text-danger"
+          >
+          Score per question number is required
+          </p>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-item form-control p-0">
+        <label for="desc">Description: </label>
+        <input formControlName="description" id="desc" type="text">
+      </div>
+      <div
+      *ngIf="
+        quizzForm.get('description')?.errors &&
+        quizzForm.get('description')?.touched
+      "
+      class="d-flex align-items-center mt-1"
+      >
+      <img
+      src="../../../../../assets/imgs/invalid.png"
+      width="22"
+        height="22"
+        alt
+        class="mx-2"
+      />
+      <p
+        *ngIf="quizzForm.get('description')?.getError('required')"
+        class="m-0 text-danger"
+      >
+      Description number is required
+      </p>
+    </div>
+<!--
+      <div class="form-item form-control d-flex align-items-center w-50">
+          <label>Schedule</label>
+
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon class="d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-calendar-days text-black"></i>
+            </mat-icon>
+          </mat-datepicker-toggle>
+          <input matInput [matDatepicker]="picker" [formControl]="dateControl">
+          <mat-datepicker #picker></mat-datepicker>
+
+          <label for="time" class="time-label d-flex align-items-center cursor-pointer">
+            <i class="fa-solid fa-clock"></i>
+          </label>
+          <input id="time" matInput [ngxTimepicker]="timepicker" [formControl]="timeControl" readonly>
+          <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+      </div> -->
+
+      <div class="form-item form-control w-50">
+        <label class="p-2" for="appointment">schadule</label>
+        <input formControlName="schadule"  type="datetime-local" id="appointment" name="appointment">
+      </div>
+
+      <div
+      *ngIf="
+        quizzForm.get('schadule')?.errors &&
+        quizzForm.get('schadule')?.touched
+      "
+      class="d-flex align-items-center mt-1"
+      >
+      <img
+      src="../../../../../assets/imgs/invalid.png"
+      width="22"
+        height="22"
+        alt
+        class="mx-2"
+      />
+      <p
+        *ngIf="quizzForm.get('schadule')?.getError('required')"
+        class="m-0 text-danger"
+      >
+      Schadule is required
+      </p>
+    </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+            <label class="small p-2">Difficulty level</label>
+            <mat-select disableRipple class="w-50" formControlName="difficulty" >
+              <mat-option value="easy">easy</mat-option>
+              <mat-option value="medium">medium</mat-option>
+              <mat-option value="hard">hard</mat-option>
+            </mat-select>
+          </div>
+
+          <div
+          *ngIf="
+            quizzForm.get('difficulty')?.errors &&
+            quizzForm.get('difficulty')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+          <img
+          src="../../../../../assets/imgs/invalid.png"
+          width="22"
+            height="22"
+            alt
+            class="mx-2"
+          />
+          <p
+            *ngIf="quizzForm.get('difficulty')?.getError('required')"
+            class="m-0 text-danger"
+          >
+          Difficulty is required
+          </p>
+        </div>
+
+        </div>
+        <div class="col-md-4">
+          <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+            <label class="small p-2">Category type</label>
+            <mat-select disableRipple formControlName="type" >
+              <mat-option value="FE">FE</mat-option>
+              <mat-option value="BE">BE</mat-option>
+              <mat-option value="DO">DO</mat-option>
+            </mat-select>
+          </div>
+          <div
+          *ngIf="
+            quizzForm.get('type')?.errors &&
+            quizzForm.get('type')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+          <img
+          src="../../../../../assets/imgs/invalid.png"
+          width="22"
+            height="22"
+            alt
+            class="mx-2"
+          />
+          <p
+            *ngIf="quizzForm.get('type')?.getError('required')"
+            class="m-0 text-danger"
+          >
+          Category Type is required
+          </p>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-item form-control p-0 d-flex justify-content-between align-items-center">
+            <label class="small p-2">Group name</label>
+            <mat-select disableRipple class="w-50" formControlName="group">
+              <mat-option *ngFor="let group of groupsList" [value]="group._id">{{group.name}}</mat-option>
+
+            </mat-select>
+          </div>
+
+          <div
+          *ngIf="
+            quizzForm.get('group')?.errors &&
+            quizzForm.get('group')?.touched
+          "
+          class="d-flex align-items-center mt-1"
+          >
+          <img
+          src="../../../../../assets/imgs/invalid.png"
+          width="22"
+            height="22"
+            alt
+            class="mx-2"
+          />
+          <p
+            *ngIf="quizzForm.get('group')?.getError('required')"
+            class="m-0 text-danger"
+          >
+          Group Type is required
+          </p>
+        </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <button (click)=" onNoClick()" (click)="openResponseDialog()">open</button>
+</section>

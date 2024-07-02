@@ -17,6 +17,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeletePopupComponent } from './components/delete-popup/delete-popup.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'YYYY/MM/DD',
+  },
+  display: {
+    dateInput: 'YYYY/MM/DD',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'YYYY/MM/DD',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -39,7 +58,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaterialTimepickerModule,
+    ClipboardModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -57,7 +80,15 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     MatMenuModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaterialTimepickerModule,
+    ClipboardModule
+  ],
+  providers: [
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
+    { provide: MAT_DATE_LOCALE, useValue: 'en-US' } // Adjust locale if necessary
   ]
 })
 export class SharedModule { }
