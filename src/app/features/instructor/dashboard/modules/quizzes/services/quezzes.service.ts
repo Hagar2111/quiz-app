@@ -19,4 +19,11 @@ getQuizById(id:string):Observable<IquizDetails>{
   return this._HttpClient.get<IquizDetails>(`quiz/${id}`);
 }
 
+getAllQuiz():Observable<IquizDetails[]>{
+  return this._HttpClient.get<IquizDetails[]>(`quiz`);
+
+
+}
+
+
 }

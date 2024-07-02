@@ -30,7 +30,8 @@ export class QuizDetailsComponent {
     updatedAt:'',
     createdAt:'',
     __v:0,
-    closed_at:''
+    closed_at:'',
+    participants:0
   }
 
   constructor(

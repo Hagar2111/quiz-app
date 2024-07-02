@@ -19,6 +19,8 @@ export interface IQuizResponse{
     message:string;
     timestamp:string;
 }
+export type allQuizzes = IquizDetails[]
+
 
 export interface IquizDetails{
     _id:string;
@@ -39,6 +41,8 @@ export interface IquizDetails{
     createdAt:string;
     __v:number;
     closed_at:string;
+    participants: number
+
 }
 
 export interface IQuestions{
