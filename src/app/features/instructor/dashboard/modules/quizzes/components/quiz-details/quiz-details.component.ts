@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { QuezzesService } from '../../services/quezzes.service';
-import { IquizDetails } from '../../models/IQuizzes';
+import { IUpdateQuiz, IquizDetails } from '../../models/IQuizzes';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AddEditQuizzComponent } from '../add-edit-quizz/add-edit-quizz.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-details',
@@ -11,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class QuizDetailsComponent {
 
-  // extractedTime:string ='';
+  idParam:string ="";
   quisDetails:IquizDetails ={
     _id:'',
     code:'',
@@ -30,27 +33,68 @@ export class QuizDetailsComponent {
     updatedAt:'',
     createdAt:'',
     __v:0,
-    closed_at:''
+    closed_at:'',
   }
 
   constructor(
     private _QuezzesService:QuezzesService,
-    private _ToastrService:ToastrService
+    private _ToastrService:ToastrService,
+    private _ActivatedRoute:ActivatedRoute,
+    public dialog: MatDialog
   ){}
 
   ngOnInit(): void {
-    this.gitQuizDetails('667b73a7c85f1ecdbc26bc03');
+    this.idParam = this._ActivatedRoute.snapshot.params['id'];
+    // this.gitQuizDetails('667b73a7c85f1ecdbc26bc03');
+    this.gitQuizDetails();
     
   }
 
-  gitQuizDetails(quizId:string){
-    this._QuezzesService.getQuizById(quizId).subscribe({
+  gitQuizDetails(){
+    this._QuezzesService.getQuizById(this.idParam).subscribe({
       next:(res) =>{
         this.quisDetails = res;
       },
       error:(err:HttpErrorResponse)=>{
         this._ToastrService.error(err.error.message);
       }
+    })
+  }
+
+  openUpdateDailog(enterAnimationDuration: string, 
+    exitAnimationDuration: string,
+    id: string ,title:string, description:string
+): void {
+
+    const dialogRef = this.dialog.open(AddEditQuizzComponent, {
+      
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data: {
+        id: id,
+        title:title,
+        description:description
+
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    console.log(result)
+      if (result) {
+        this.editQuiz(id ,result)
+      }
+
+    });
+  }
+
+  editQuiz(id:string, data:IUpdateQuiz){
+    this._QuezzesService.updateQuiz(id, data).subscribe({
+      next: (res) =>{},
+      error:(err) => {
+        this._ToastrService.error(err.error.message)
+      },
+      complete:() => {
+        this._ToastrService.success('Quiz updated successfully');
+      },
     })
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { IQuiz,IQuizResponse, IquizDetails } from '../models/IQuizzes';
+import { IQuiz,IQuizResponse, IUpdateQuiz, IquizDetails } from '../models/IQuizzes';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,10 @@ onAddQuiz(data:FormData):Observable<any>{
 
 getQuizById(id:string):Observable<IquizDetails>{
   return this._HttpClient.get<IquizDetails>(`quiz/${id}`);
+}
+
+updateQuiz(id:string , updateQuizData:IUpdateQuiz):Observable<IQuizResponse>{
+  return this._HttpClient.put<IQuizResponse>(`quiz/${id}` ,updateQuizData)
 }
 
 }
