@@ -12,11 +12,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let student of students">
-                    <td>{{student.first_name + " " + student.last_name}}</td>
-                    <td>16</td>
+                <tr *ngFor="let participant of participants">
+                    <td>{{participant.participant.first_name + " "+ participant.participant.last_name}}</td>
+                    <td>{{participant.score}}</td>
                     <td>20</td>
-                    <td>09 : 00</td>
+                    <td>{{participant.finished_at |date:'dd/MM/yyyy'}}</td>
                 </tr>
                 <tr>
                     <td>Jacob Hamuel</td>

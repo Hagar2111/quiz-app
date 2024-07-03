@@ -1,0 +1,29 @@
+<section>
+    <div class="container-fluid">
+        <h1>Completed Quizzes</h1>
+
+        <table>
+            <thead>
+                <tr class="">
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Score</th>
+
+                    <th>Participants</th>
+                    <th>Closed at</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let result of allResults">
+                    <td class="">{{result.quiz.title}}</td>
+                    <td>{{result.quiz.type}}</td>
+                    <td>{{result.result.score}}</td>
+
+                    <td>{{result.result.participant.first_name}}</td>
+                    <td>{{result.quiz.closed_at?.slice(0,10)}}</td>
+                 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

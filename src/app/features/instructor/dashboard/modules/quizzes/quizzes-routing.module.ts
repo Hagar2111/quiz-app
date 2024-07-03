@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuizzesComponent } from './quizzes.component';
+import { QuizDetailsComponent } from './components/quiz-details/quiz-details.component';
+import { ListQuizComponent } from './components/list-quiz/list-quiz.component';
 
 const routes: Routes = [
   { path: '', component: QuizzesComponent },
-  { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule) }
+  { path: 'quiz-details', component: QuizDetailsComponent },
+  { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule)},
+  {path:'listQuiz',component:ListQuizComponent}
 ];
 
 @NgModule({

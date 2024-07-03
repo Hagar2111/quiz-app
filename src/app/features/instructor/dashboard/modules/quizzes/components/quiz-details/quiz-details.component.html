@@ -1,1 +1,43 @@
-<p>quiz-details works!</p>
+<section >
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-lg-6 col-md-6 col-sm-12 p-3">
+                <h1>{{quisDetails.title}}</h1>
+                <div class="time d-flex ">
+                    <p class="pe-2"><i class="fa-solid fa-calendar-days"></i> {{quisDetails.schadule| date:'dd/MM/yyyy'}}</p>
+                    <p><i class="fa-solid fa-clock"></i> {{quisDetails.schadule| date:'hh:mm:ss'}}</p>
+                </div>
+                <article class="d-flex flex-column">
+                    <div class="d-flex justify-content-start">
+                        <span class="w-50 ">Duration</span> 
+                        <span>{{quisDetails.duration}}</span>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <span class="w-50">Number of questions</span> 
+                        <span>{{quisDetails.questions_number}}</span>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <span class="w-50">Score per question</span> 
+                        <span>{{quisDetails.score_per_question}}</span>
+                    </div>
+                    <div class="d-flex flex-column justify-content-start desc">
+                        <span>Description</span> 
+                        <span>{{quisDetails.description}}</span>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <span class="w-50">Type</span> 
+                        <span>{{quisDetails.type}}</span>
+                    </div>
+                    <div class="mb-2 d-flex">
+                        <input type="checkbox" id="randomize" name="randomize" value="">
+                        <label for="randomize"> Randomize questions</label>
+                    </div>
+                    <button (click)="openUpdateDailog('1000ms', '1000ms', quisDetails._id ,quisDetails.title,quisDetails.description)" class="align-self-end">
+                        <i class="fa-solid fa-pencil"></i>
+                        Edit
+                    </button>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

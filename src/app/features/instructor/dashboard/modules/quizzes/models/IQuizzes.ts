@@ -19,6 +19,8 @@ export interface IQuizResponse{
     message:string;
     timestamp:string;
 }
+export type allQuizzes = IquizDetails[]
+
 
 export interface IquizDetails{
     _id:string;
@@ -32,13 +34,15 @@ export interface IquizDetails{
     questions: IQuestions[];
     schadule:string;
     duration:number;
-    score_per_question:5;
+    score_per_question:number;
     type:string;
     difficulty:string;
     updatedAt:string;
     createdAt:string;
     __v:number;
     closed_at:string;
+    participants: number
+
 }
 
 export interface IQuestions{
@@ -47,3 +51,12 @@ export interface IQuestions{
     options: Options;
     answer:string
 }
+
+export interface IUpdateQuiz{
+    title:string,
+    description:string,
+    group:string,
+    schadule:string,
+    duration:string,
+    score_per_question:string
+  }
