@@ -3,8 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { StudentComponent } from './student.component';
 
 const routes: Routes = [
-  { path: '', component: StudentComponent },
-  // { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
+  {
+    path: '', component: StudentComponent, children: [
+      {path:'',redirectTo:'home',pathMatch:'full'},
+      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }, 
+      { path: 'quiz', loadChildren: () => import('./quiz/quiz.module').then(m => m.QuizModule) }, 
+      { path: 'result', loadChildren: () => import('./result/result.module').then(m => m.ResultModule) }, 
+
+      
+    ]
+  },
 
 ];
 
