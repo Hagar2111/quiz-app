@@ -19,7 +19,7 @@
                     <td>{{result.quiz.code}}</td>
                     <td>{{result.quiz.type}}</td>
                     <td>{{result.participants.length}}</td>
-                    <td>{{result.quiz.schadule.slice(0,10)}}</td>
+                    <td>{{result.quiz.createdAt| date:'dd/MM/yyyy'}}</td>
                     <td>
                         <button class="secondary"  routerLink="../results/result-view" >
                             View

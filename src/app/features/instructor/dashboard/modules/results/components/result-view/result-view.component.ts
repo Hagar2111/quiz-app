@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IStudent } from 'src/app/core/models/IGroup.model';
-import { StudentsService } from '../../../students/services/students.service';
 import { ToastrService } from 'ngx-toastr';
-
+import { ResultsService } from '../../services/results.service';
+import { IQuizGroup, IResults, IParticipant } from '../../model/IResults';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-result-view',
@@ -11,15 +12,21 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ResultViewComponent {
 
-  students: IStudent[] = [];
+  allResults: IResults[]=[];
+  participants:IParticipant[] = [];
 
-  constructor(private _StudentsService:StudentsService, private _ToastrService:ToastrService){}
+  constructor(
+    private _ResultsService:ResultsService, 
+    private _ToastrService:ToastrService
+  ){}
 
     
-  getAllStudents() {
-    this._StudentsService.getAllStudents().subscribe({
+  getAllParticipants() {
+    this._ResultsService.getAllResults().subscribe({
       next: (res) => {
-        this.students = res;
+        this.allResults = res;
+      // Extract participants from all quizzes
+        this.participants = this.allResults.flatMap(result => result.participants);      
       },
       error: (err) => {
         this._ToastrService.error(err.error.message);

@@ -4,7 +4,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 p-3">
                 <h1>{{quisDetails.title}}</h1>
                 <div class="time d-flex ">
-                    <p class="pe-2"><i class="fa-solid fa-calendar-days"></i> {{quisDetails.schadule| date:'dd/mm/yyyy'}}</p>
+                    <p class="pe-2"><i class="fa-solid fa-calendar-days"></i> {{quisDetails.schadule| date:'dd/MM/yyyy'}}</p>
                     <p><i class="fa-solid fa-clock"></i> {{quisDetails.schadule| date:'hh:mm:ss'}}</p>
                 </div>
                 <article class="d-flex flex-column">
@@ -32,7 +32,7 @@
                         <input type="checkbox" id="randomize" name="randomize" value="">
                         <label for="randomize"> Randomize questions</label>
                     </div>
-                    <button class="align-self-end">
+                    <button (click)="openUpdateDailog('1000ms', '1000ms', quisDetails._id ,quisDetails.title,quisDetails.description)" class="align-self-end">
                         <i class="fa-solid fa-pencil"></i>
                         Edit
                     </button>

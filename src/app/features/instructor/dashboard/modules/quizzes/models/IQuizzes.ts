@@ -51,3 +51,12 @@ export interface IQuestions{
     options: Options;
     answer:string
 }
+
+export interface IUpdateQuiz{
+    title:string,
+    description:string,
+    group:string,
+    schadule:string,
+    duration:string,
+    score_per_question:string
+  }
