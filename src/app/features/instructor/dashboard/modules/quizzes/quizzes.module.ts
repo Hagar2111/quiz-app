@@ -18,7 +18,7 @@ import { QuizDetailsComponent } from './components/quiz-details/quiz-details.com
     QuizzesComponent,
 
     AddEditQuizzComponent,
-    ResponseComponent
+    ResponseComponent,
 
     QuizDetailsComponent
 
