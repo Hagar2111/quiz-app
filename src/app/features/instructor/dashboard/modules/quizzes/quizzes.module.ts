@@ -10,6 +10,7 @@ import { NgxMaterialTimepickerButtonComponent } from 'ngx-material-timepicker/sr
 import { ResponseComponent } from './components/response/response.component';
 
 import { QuizDetailsComponent } from './components/quiz-details/quiz-details.component';
+import { ListQuizComponent } from './components/list-quiz/list-quiz.component';
 
 
 
@@ -20,7 +21,8 @@ import { QuizDetailsComponent } from './components/quiz-details/quiz-details.com
     AddEditQuizzComponent,
     ResponseComponent,
 
-    QuizDetailsComponent
+    QuizDetailsComponent,
+     ListQuizComponent
 
   ],
   imports: [

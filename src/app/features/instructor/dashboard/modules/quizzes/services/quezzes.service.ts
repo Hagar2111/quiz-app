@@ -19,8 +19,17 @@ getQuizById(id:string):Observable<IquizDetails>{
   return this._HttpClient.get<IquizDetails>(`quiz/${id}`);
 }
 
+
 updateQuiz(id:string , updateQuizData:IUpdateQuiz):Observable<IQuizResponse>{
   return this._HttpClient.put<IQuizResponse>(`quiz/${id}` ,updateQuizData)
 }
+
+
+getAllQuiz():Observable<IquizDetails[]>{
+  return this._HttpClient.get<IquizDetails[]>(`quiz`);
+
+
+}
+
 
 }
