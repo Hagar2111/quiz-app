@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class StudentComponent {
 
+  collapseCol: boolean = true
+
+  toggleSidebar():void{
+    this.collapseCol = !this.collapseCol
+  }
+
+
 }

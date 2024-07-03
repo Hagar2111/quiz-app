@@ -6,25 +6,22 @@
             <thead>
                 <tr class="">
                     <th>Title</th>
-                    <th>Code</th>
                     <th>Type</th>
+                    <th>Score</th>
+
                     <th>Participants</th>
-                    <th>Date</th>
-                    <th>Action</th>
+                    <th>Closed at</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let result of allResults">
                     <td class="">{{result.quiz.title}}</td>
-                    <td>{{result.quiz.code}}</td>
                     <td>{{result.quiz.type}}</td>
-                    <td>{{result.participants.length}}</td>
-                    <td>{{result.quiz.schadule.slice(0,10)}}</td>
-                    <td>
-                        <button class="secondary"  routerLink="../results/result-view" >
-                            View
-                        </button>
-                    </td>
+                    <td>{{result.result.score}}</td>
+
+                    <td>{{result.result.participant.first_name}}</td>
+                    <td>{{result.quiz.closed_at?.slice(0,10)}}</td>
+                 
                 </tr>
             </tbody>
         </table>
