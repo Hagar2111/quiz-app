@@ -101,7 +101,7 @@
                                       <p class="mb-0 fw-bold">No. of student’s enrolled: {{
                                           quiz.studentsEnrolled }}</p>
                                       <div>
-                                          <a routerLink="/instructor/dashboard/quizzes/{{quiz._id}}"
+                                          <a [routerLink]="['quiz-details', quiz._id]"
                                               class="text-black fw-bold ">
                                               Open <i
                                                   class="fa-solid fa-arrow-alt-circle-right text-green-color"></i></a>

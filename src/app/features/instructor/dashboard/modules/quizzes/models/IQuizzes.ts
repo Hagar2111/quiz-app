@@ -41,7 +41,7 @@ export interface IquizDetails{
     createdAt:string;
     __v:number;
     closed_at:string;
-    participants: number
+    participants?: number
 
 }
 
