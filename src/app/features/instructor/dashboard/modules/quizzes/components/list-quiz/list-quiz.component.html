@@ -10,7 +10,7 @@
 
         </div>
 
-        <table class="w-100 mt-4">
+        <table class="w-100 mt-4" *ngIf="allQuiz.length">
             <thead>
                 <tr class="">
                     <th>Title</th>
@@ -37,5 +37,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <ng-container *ngIf="!allQuiz.length">
+
+            <app-no-data></app-no-data>
+  
+        </ng-container>
     </div>
 </section>

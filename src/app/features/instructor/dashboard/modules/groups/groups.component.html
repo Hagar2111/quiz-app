@@ -24,7 +24,15 @@
             </div>
           </div>
         </div>
+
+       
       </div>
+
+      <ng-container *ngIf="!AllGroups.length">
+
+        <app-no-data></app-no-data>
+
+    </ng-container>
     </div>
   </div>
 </section>

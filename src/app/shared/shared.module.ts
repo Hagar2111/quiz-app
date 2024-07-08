@@ -24,6 +24,7 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { NoDataComponent } from './components/no-data/no-data.component';
+import { NoFoundPageComponent } from './components/no-found-page/no-found-page.component';
 
 
 export const MY_DATE_FORMATS = {
@@ -43,7 +44,8 @@ export const MY_DATE_FORMATS = {
     NavbarComponent,
     SidebarComponent,
     DeletePopupComponent,
-    NoDataComponent
+    NoDataComponent,
+    NoFoundPageComponent
   ],
   imports: [
     CommonModule,
