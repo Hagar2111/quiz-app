@@ -4,6 +4,7 @@ import { AllQuiz } from '../models/IStudent';
 import { ToastrService } from 'ngx-toastr';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { HomeService } from '../../instructor/dashboard/modules/home/services/home.service';
+import {} from '../../../shared/components/no-data/no-data.component'
 
 @Component({
   selector: 'app-home',

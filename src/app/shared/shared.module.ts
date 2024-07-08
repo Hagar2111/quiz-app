@@ -23,6 +23,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { NoDataComponent } from './components/no-data/no-data.component';
 
 
 export const MY_DATE_FORMATS = {
@@ -41,7 +42,8 @@ export const MY_DATE_FORMATS = {
   declarations: [
     NavbarComponent,
     SidebarComponent,
-    DeletePopupComponent
+    DeletePopupComponent,
+    NoDataComponent
   ],
   imports: [
     CommonModule,
@@ -84,7 +86,9 @@ export const MY_DATE_FORMATS = {
     MatDatepickerModule,
     MatNativeDateModule,
     NgxMaterialTimepickerModule,
-    ClipboardModule
+    ClipboardModule,
+    NoDataComponent
+
   ],
   providers: [
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },

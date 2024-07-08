@@ -6,13 +6,15 @@ import { StudentComponent } from './student.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SideBarStudentComponent } from './components/side-bar-student/side-bar-student.component';
 import { QuizQuestionsComponent } from './components/quiz-questions/quiz-questions.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     StudentComponent,
     SideBarStudentComponent,
-    QuizQuestionsComponent
+    QuizQuestionsComponent,
+
   ],
   imports: [
     CommonModule,
