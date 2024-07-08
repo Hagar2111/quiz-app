@@ -6,9 +6,9 @@ import { NoFoundPageComponent } from './shared/components/no-found-page/no-found
 
 const routes: Routes = [
   {path:'', redirectTo: 'auth', pathMatch:'full'},
-  { path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) }, 
-  { path: 'student', canActivate:[studentGuard], loadChildren: () => import('./features/student/student.module').then(m => m.StudentModule) } , 
-  { path: 'instructor', canActivate:[intructorGuard], loadChildren: () => import('./features/instructor/instructor.module').then(m => m.InstructorModule) },
+  { path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) , title: 'Login' }, 
+  { path: 'student', canActivate:[studentGuard], loadChildren: () => import('./features/student/student.module').then(m => m.StudentModule) , title: 'Student'} , 
+  { path: 'instructor', canActivate:[intructorGuard], loadChildren: () => import('./features/instructor/instructor.module').then(m => m.InstructorModule) , title: 'Instructor'},
   {path: '**' , component: NoFoundPageComponent , title: 'Error 404!'}
 ];
 
