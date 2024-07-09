@@ -76,6 +76,9 @@
                                     </div>
                                 </ng-container>
                                 <ng-container *ngIf="!incommingQuiz.length">
+
+                                        <app-no-data></app-no-data>
+                
             
                                 </ng-container>
                             </div>
@@ -94,7 +97,7 @@
                                 <div class="card-body my-3">
                 
                                 
-                                        <table class="w-100">
+                                        <table class="w-100" *ngIf="completedQuiz.length">
                                             <thead>
                                                 <tr class="">
                                                     <th>Title</th>
@@ -113,6 +116,12 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+
+                                        <ng-container *ngIf="!completedQuiz.length">
+
+                                            <app-no-data></app-no-data>
+                    
+                                        </ng-container>
                                    
                                 </div>
                             </div>

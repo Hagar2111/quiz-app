@@ -1,4 +1,4 @@
-<section class="container-fluid">
+<div class="container-fluid">
     <div class="row  g-4">
         <div class="col-lg-6">
 
@@ -37,8 +37,9 @@
                             </div>
                         </div>
                     </ng-container>
-                    <!-- No students Found -->
                     <ng-container *ngIf="!incommingQuiz.length">
+
+                        <app-no-data></app-no-data>
 
                     </ng-container>
                 </div>
@@ -55,7 +56,7 @@
                 <div class="card-body my-3">
 
                 
-                        <table class="w-100">
+                        <table class="w-100" *ngIf="completedQuiz.length">
                             <thead>
                                 <tr class="">
                                     <th>Title</th>
@@ -74,9 +75,15 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <ng-container *ngIf="!completedQuiz.length">
+
+                            <app-no-data></app-no-data>
+    
+                        </ng-container>
                    
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
