@@ -45,7 +45,7 @@ export const MY_DATE_FORMATS = {
     NavbarComponent,
     SidebarComponent,
     DeletePopupComponent,
-    SharedHeaderComponent
+    SharedHeaderComponent,
     NoDataComponent,
     NoFoundPageComponent
   ],
