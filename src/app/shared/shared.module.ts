@@ -23,6 +23,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { NoFoundPageComponent } from './components/no-found-page/no-found-page.component';
 
@@ -44,6 +45,7 @@ export const MY_DATE_FORMATS = {
     NavbarComponent,
     SidebarComponent,
     DeletePopupComponent,
+    SharedHeaderComponent,
     NoDataComponent,
     NoFoundPageComponent
   ],
@@ -73,6 +75,7 @@ export const MY_DATE_FORMATS = {
     RouterLink,
     NavbarComponent,
     SidebarComponent,
+    SharedHeaderComponent,
     RouterLinkActive,
     MatFormFieldModule,
     MatButtonModule,

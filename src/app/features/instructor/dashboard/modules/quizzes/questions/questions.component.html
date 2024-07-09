@@ -25,9 +25,8 @@
         <td>{{ques.difficulty}}</td>
         <td>
           <i (click)="openAddEditDialog(ques._id,true)"  class="fa-regular fa-eye me-3 text-success"></i>
-              <i (click)="openAddEditDialog(ques._id)" class="fa-regular fa-pen-to-square me-3 text-warning"></i>
-              <i (click)="openDeleteDialog(ques._id,ques.title,'question')" class="fa-regular fa-trash-can text-danger"></i>
-            
+          <i (click)="openAddEditDialog(ques._id)" class="fa-regular fa-pen-to-square me-3 text-warning"></i>
+          <i (click)="openDeleteDialog(ques._id,ques.title,'question')" class="fa-regular fa-trash-can text-danger"></i>
         </td>
       </tr>
     </tbody>
