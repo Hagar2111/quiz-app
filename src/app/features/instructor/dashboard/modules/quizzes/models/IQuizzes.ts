@@ -42,6 +42,8 @@ export interface IquizDetails{
     __v:number;
     closed_at:string;
     // participants: number;
+    participants?: number
+
 }
 
 export interface IQuestions{

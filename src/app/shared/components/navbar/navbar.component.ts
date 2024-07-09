@@ -70,8 +70,10 @@ export class NavbarComponent {
     if (segments.length > 0) {
       let specificSegment = segments[segments.length - 1];
 
-      if(specificSegment=='listQuiz') {
-        specificSegment='Quizzes'}
+      if(specificSegment=='quezzes' || specificSegment=='result-view' || specificSegment=='listQuiz' || specificSegment.split('').length > 19) {
+        specificSegment='Quizzes'
+      }
+        
       this.routePath = specificSegment;
     }
   }

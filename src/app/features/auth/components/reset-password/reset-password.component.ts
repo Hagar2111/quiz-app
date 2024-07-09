@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -27,6 +27,7 @@ export class ResetPasswordComponent implements OnInit {
     private _AuthService: AuthService,
     private _Router: Router,
     private _ToastrService: ToastrService,
+    private _ActivatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +42,14 @@ export class ResetPasswordComponent implements OnInit {
       confirmPassword: ['', Comfirm_Password_validators],
       otp: ["", Default_Validators],
     })
+
+      // Retrieve email from query parameters and set it in the form
+  this._ActivatedRoute.queryParams.subscribe(params => {
+    const email = params['email'];
+    if (email) {
+      this.resetForm.patchValue({ email: email });
+    }
+  });
   }
 
 

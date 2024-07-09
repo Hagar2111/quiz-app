@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <h1>Completed Quizzes</h1>
 
-        <table>
+        <table *ngIf="allResults.length">
             <thead>
                 <tr class="">
                     <th>Title</th>
@@ -25,5 +25,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <ng-container *ngIf="!allResults.length">
+
+            <app-no-data></app-no-data>
+
+        </ng-container>
     </div>
 </section>

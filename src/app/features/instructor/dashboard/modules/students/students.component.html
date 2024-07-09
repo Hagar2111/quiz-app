@@ -69,6 +69,8 @@
                     <!-- No students Found -->
                     <ng-container *ngIf="!displayedStudents.length">
 
+                            <app-no-data></app-no-data>
+    
                     </ng-container>
                 </div>
                 <mat-paginator *ngIf="totalCount" #paginator class="demo-paginator" (page)="handlePageEvent($event)"

@@ -3,7 +3,7 @@
   
     <div class="main-div route-content d-flex align-items-center justify-content-between gap-3">
       <h3 class="m-0 text-capitalize">{{ routePath }}</h3>
-      <a *ngIf="loggedInRole == 'Instructor'" class="d-flex align-items-center gap-2 new-action" role="button"> 
+      <a *ngIf="loggedInRole == 'Instructor'" class="d-flex align-items-center gap-2 new-action" role="button" routerLink="./quizzes/listQuiz"> 
         <img src="./../../../../assets/imgs/Vector.png" class="" alt="alarm new quiz">
         <p class="m-0">New quiz</p>
       </a>

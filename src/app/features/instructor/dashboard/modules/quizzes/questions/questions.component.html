@@ -1,18 +1,22 @@
 <section class="questions-holder">
   <div class="header d-flex justify-content-between">
-    <h3>Bank Of Questions</h3>
+    <h1>Bank Of Questions</h1>
     <button class="dashboard-btn" (click)="openAddEditDialog()">
       <i class="fa-solid fa-circle-plus"></i>
       Add Question
     </button>
   </div>
 
-  <table class="table table-striped">
+  <table class="w-100 " *ngIf="questionsList.length">
     <thead>
+      <tr class="">
+
       <th>Question Title</th>
       <th>Question Desc</th>
       <th>Question difficulty level</th>
       <th>Actions</th>
+      <tr class="">
+
     </thead>
     <tbody>
       <tr *ngFor="let ques of questionsList">
@@ -27,4 +31,10 @@
       </tr>
     </tbody>
   </table>
+
+  <ng-container *ngIf="!questionsList.length">
+
+    <app-no-data></app-no-data>
+
+</ng-container>
 </section>

@@ -1,6 +1,6 @@
 <div>
 
-  <div class="container-fluid">
+  <div class="container-fluid mb-5">
 
   <div class="row g-4">
 
@@ -47,7 +47,7 @@
        <section>
         <h1>Completed Quizzes</h1>
 
-        <table class="w-100">
+        <table class="w-100" *ngIf="allResults.length">
             <thead>
                 <tr class="">
                     <th>Title</th>
@@ -66,6 +66,12 @@
                 </tr>
             </tbody>
         </table>
+
+        <ng-container *ngIf="!allResults.length">
+
+            <app-no-data></app-no-data>
+  
+        </ng-container>
        </section>
 
       </div>
@@ -101,10 +107,10 @@
                                       <p class="mb-0 fw-bold">No. of student’s enrolled: {{
                                           quiz.studentsEnrolled }}</p>
                                       <div>
-                                          <a routerLink="/instructor/dashboard/quizzes/{{quiz._id}}"
+                                          <a [routerLink]="['quiz-details', quiz._id]"
                                               class="text-black fw-bold ">
-                                              Open <i
-                                                  class="fa-solid fa-arrow-alt-circle-right text-green-color"></i></a>
+                                              Open 
+                                              <i class="fa-solid fa-arrow-alt-circle-right text-green-color"></i></a>
                                       </div>
                                   </div>
                               </div>
@@ -113,9 +119,10 @@
                       </div>
                   </div>
               </ng-container>
-              <!-- No students Found -->
               <ng-container *ngIf="!incommingQuiz.length">
 
+                    <app-no-data></app-no-data>
+          
               </ng-container>
           </div>
       </div>

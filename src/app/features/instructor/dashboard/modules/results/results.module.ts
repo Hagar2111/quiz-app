@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ResultsRoutingModule } from './results-routing.module';
 import { ResultsComponent } from './results.component';
 import { ResultViewComponent } from './components/result-view/result-view.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -16,7 +16,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ResultsRoutingModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class ResultsModule { }

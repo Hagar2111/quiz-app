@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <h1>Completed Quizzes</h1>
 
-        <table>
+        <table class="w-100" *ngIf="allResults.length">
             <thead>
                 <tr class="">
                     <th>Title</th>
-                    <th>Code</th>
+                    <th>Difficulty</th>
                     <th>Type</th>
                     <th>Participants</th>
                     <th>Date</th>
@@ -16,9 +16,9 @@
             <tbody>
                 <tr *ngFor="let result of allResults">
                     <td class="">{{result.quiz.title}}</td>
-                    <td>{{result.quiz.code}}</td>
+                    <td>{{result.quiz.difficulty}}</td>
                     <td>{{result.quiz.type}}</td>
-                    <td>{{result.participants.length}}</td>
+                    <td>{{result.participants.length}} persons</td>
                     <td>{{result.quiz.createdAt| date:'dd/MM/yyyy'}}</td>
                     <td>
                         <button class="secondary"  routerLink="../results/result-view" >
@@ -28,5 +28,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <ng-container *ngIf="!allResults.length">
+
+            <app-no-data></app-no-data>
+        
+        </ng-container>
     </div>
 </section>
