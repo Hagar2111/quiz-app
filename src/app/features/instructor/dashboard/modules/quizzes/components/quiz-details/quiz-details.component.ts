@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddEditQuizzComponent } from '../add-edit-quizz/add-edit-quizz.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { IBreadCrumb } from 'src/app/shared/models/shared';
 
 @Component({
   selector: 'app-quiz-details',
@@ -13,6 +14,17 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./quiz-details.component.scss']
 })
 export class QuizDetailsComponent {
+
+  //header
+  
+  viewID:string =''
+  navigationList: IBreadCrumb[] = [
+    { label: 'Quizzes', url: '../../../quizzes' },
+    { label: 'View' }
+  ]
+  btnText: string = 'Dashboard';
+  btnIcon: string = "";
+  // quizData!:IQuizResponseByID;
 
   idParam:string ="";
   quisDetails:IquizDetails ={
