@@ -18,7 +18,7 @@ cursor-pointer" (click)="openAddEditDialog()">
                     <th>Title</th>
                     <th>Code</th>
                     <th>Type</th>
-                    <th>Participants</th>
+                    <!-- <th>Participants</th> -->
                     <th>Date</th>
                     <th>Action</th>
                 </tr>
@@ -28,11 +28,11 @@ cursor-pointer" (click)="openAddEditDialog()">
                     <td class="">{{quiz.title}}</td>
                     <td>{{quiz.code}}</td>
                     <td>{{quiz.type}}</td>
-                    <td>{{quiz.participants}}</td>
+                    <!-- <td>{{quiz.participants}}</td> -->
                     <td>{{quiz.schadule.slice(0,10)}}</td>
                     <td>
                         <i   class="fa-regular fa-eye me-3 text-success"></i>
-                        <i  class="fa-regular fa-pen-to-square me-3 text-warning"></i>
+                        <i  class="fa-regular fa-pen-to-square me-3 text-warning" (click)="openAddEditDialog(quiz._id)"></i>
                         <i  class="fa-regular fa-trash-can text-danger"></i>
             
                     </td>

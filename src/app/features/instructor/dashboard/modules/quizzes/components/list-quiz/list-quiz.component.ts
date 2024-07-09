@@ -37,13 +37,18 @@ export class ListQuizComponent implements OnInit{
 
   openAddEditDialog(id?:string,view?:boolean): void {
     const dialogRef = this.dialog.open(AddEditQuizzComponent, {
-      
-      data: {    }
+
+      data: {  id  }
     });
 
-    dialogRef.afterClosed().subscribe(result => { 
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
+      console.log('result', result);
+
+      if(result){
+        this.getAllQuiz()
+      }
+
     });
   }
 
