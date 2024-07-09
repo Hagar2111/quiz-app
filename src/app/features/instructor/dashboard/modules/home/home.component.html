@@ -19,18 +19,18 @@
                                 <div class="d-flex flex-wrap justify-content-center h-100">
                                     <div class="w-100 align-content-end">
                                         <header class="content-title header-fw">{{quiz.title}}</header>
-                                        <p class="content-subtitle text-black mt-1">{{quiz.schadule | date: 'dd / MM /
-                                            yyyy | hh:mm a' }}</p>
+                                        <p class="content-subtitle text-black mt-1">{{quiz.schadule | date: 'dd / MM /yyyy | hh:mm a' }}</p>
                                     </div>
                                     <div class="w-100 align-content-end">
                                         <div class="d-flex justify-content-between">
                                             <p class="mb-0 fw-bold">No. of student’s enrolled: {{
                                                 quiz.studentsEnrolled }}</p>
                                             <div>
-                                                <a routerLink="/instructor/dashboard/quizzes/{{quiz._id}}"
+                                                <a [routerLink]="['quiz-details', quiz._id]"
                                                     class="text-black fw-bold ">
-                                                    Open <i
-                                                        class="fa-solid fa-arrow-alt-circle-right text-green-color"></i></a>
+                                                    Open 
+                                                    <i class="fa-solid fa-arrow-alt-circle-right text-green-color"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

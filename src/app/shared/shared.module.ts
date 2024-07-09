@@ -23,6 +23,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
 
 
 export const MY_DATE_FORMATS = {
@@ -41,7 +42,8 @@ export const MY_DATE_FORMATS = {
   declarations: [
     NavbarComponent,
     SidebarComponent,
-    DeletePopupComponent
+    DeletePopupComponent,
+    SharedHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -69,6 +71,7 @@ export const MY_DATE_FORMATS = {
     RouterLink,
     NavbarComponent,
     SidebarComponent,
+    SharedHeaderComponent,
     RouterLinkActive,
     MatFormFieldModule,
     MatButtonModule,
