@@ -25,9 +25,12 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatStepperModule } from '@angular/material/stepper';
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import { QuizCardComponent } from './components/quiz-card/quiz-card.component';
 import { JoinQuizComponent } from './components/join-quiz/join-quiz.component';
+import { NoFoundPageComponent } from './components/no-found-page/no-found-page.component';
+
 
 
 export const MY_DATE_FORMATS = {
@@ -47,9 +50,11 @@ export const MY_DATE_FORMATS = {
     NavbarComponent,
     SidebarComponent,
     DeletePopupComponent,
-    NoDataComponent,
     QuizCardComponent,
     JoinQuizComponent
+    SharedHeaderComponent,
+    NoDataComponent,
+    NoFoundPageComponent
   ],
   imports: [
     CommonModule,
@@ -78,6 +83,7 @@ export const MY_DATE_FORMATS = {
     RouterLink,
     NavbarComponent,
     SidebarComponent,
+    SharedHeaderComponent,
     RouterLinkActive,
     MatFormFieldModule,
     MatButtonModule,

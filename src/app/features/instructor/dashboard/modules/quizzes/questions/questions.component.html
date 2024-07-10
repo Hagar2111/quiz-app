@@ -1,18 +1,22 @@
-<section class="questions-holder">
-  <div class="header d-flex justify-content-between">
-    <h3>Bank Of Questions</h3>
-    <button class="dashboard-btn" (click)="openAddEditDialog()">
+<section class="questions-holder mb-5">
+  <div class="header d-flex justify-content-between align-items-center mt-2">
+    <h1>Bank Of Questions</h1>
+    <button class="dashboard-btn new-action" (click)="openAddEditDialog()">
       <i class="fa-solid fa-circle-plus"></i>
       Add Question
     </button>
   </div>
 
-  <table class="table table-striped">
+  <table class="w-100 mt-4" *ngIf="questionsList.length">
     <thead>
+      <tr class="">
+
       <th>Question Title</th>
       <th>Question Desc</th>
       <th>Question difficulty level</th>
       <th>Actions</th>
+      <tr class="">
+
     </thead>
     <tbody>
       <tr *ngFor="let ques of questionsList">
@@ -21,11 +25,16 @@
         <td>{{ques.difficulty}}</td>
         <td>
           <i (click)="openAddEditDialog(ques._id,true)"  class="fa-regular fa-eye me-3 text-success"></i>
-              <i (click)="openAddEditDialog(ques._id)" class="fa-regular fa-pen-to-square me-3 text-warning"></i>
-              <i (click)="openDeleteDialog(ques._id,ques.title,'question')" class="fa-regular fa-trash-can text-danger"></i>
-            
+          <i (click)="openAddEditDialog(ques._id)" class="fa-regular fa-pen-to-square me-3 text-warning"></i>
+          <i (click)="openDeleteDialog(ques._id,ques.title,'question')" class="fa-regular fa-trash-can text-danger"></i>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <ng-container *ngIf="!questionsList.length">
+
+    <app-no-data></app-no-data>
+
+</ng-container>
 </section>
