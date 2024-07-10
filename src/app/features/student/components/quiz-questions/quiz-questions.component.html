@@ -1,1 +1,39 @@
-<p>quiz-questions works!</p>
+<section class="native-stepper">
+    <div class="home-card">
+        <mat-stepper state="phone" #stepper>
+                <ng-container *ngFor="let question of questions; index as i">
+                    <mat-step>
+                        <ng-template matStepLabel>
+                            <div class="stepper-label {{questionFlags[question._id]}}">
+                                {{i+1}}
+                            </div>
+                        </ng-template>
+                        <div class="questions-form">
+                            <div class="w-100 m-1">
+                                <h3 class="text-center">{{question.title}}</h3>
+                            </div>
+                            <div class="row justify-content-center align-items-center my-3">
+                                <ng-container *ngFor="let option of question.options | keyvalue:onCompare">
+                                    <div class="col-6" *ngIf="option.key !== '_id'">
+                                        <label class="question-label" [ngClass]="{'right-answer': isRightAnswer(i, option.key)}" for="Q{{i}}-O{{option.key}}">
+                                            <input id="Q{{i}}-O{{option.key}}" type="radio" name="Q{{i}}" hidden [value]="option.key" [(ngModel)]="answers[i].answer" (change)="changeQuestionFlag(question._id, 'Completed')">
+                                            <span>{{option.key}}</span>
+                                            <p>{{option.value}}</p>
+                                        </label>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-evenly m-2">
+                                <button type="button" mat-button matStepperPrevious *ngIf="i !== 0">Back</button>
+                                <button type="button" mat-button (click)="changeQuestionFlag(question._id, 'Uncertain')">uncertain</button>
+                                <button type="button" mat-button matStepperNext
+                                    *ngIf="i !== questions.length - 1">Next</button>
+                                <button type="submit" mat-button *ngIf="i === questions.length - 1" (click)="submitQuiz()" [disabled]="checkValidation()">Submit</button>
+                            </div>
+
+                        </div>
+                    </mat-step>
+                </ng-container>
+        </mat-stepper>
+    </div>
+</section>

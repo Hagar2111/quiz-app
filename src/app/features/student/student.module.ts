@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SideBarStudentComponent } from './components/side-bar-student/side-bar-student.component';
 import { QuizQuestionsComponent } from './components/quiz-questions/quiz-questions.component';
 import { HomeComponent } from './home/home.component';
+import { DisplayResultComponent } from './components/display-result/display-result.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HomeComponent } from './home/home.component';
     StudentComponent,
     SideBarStudentComponent,
     QuizQuestionsComponent,
+    DisplayResultComponent,
 
   ],
   imports: [

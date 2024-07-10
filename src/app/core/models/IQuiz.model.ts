@@ -1,3 +1,5 @@
+import { IQuestion } from "./IQuestion.model"
+
 export interface IQuiz {
     code: string,
     _id: string,
@@ -7,7 +9,7 @@ export interface IQuiz {
     instructor: string,
     group: string,
     questions_number: number,
-    questions: string[],
+    questions: IQuestion[],
     schadule: string,
     duration: number,
     score_per_question: number,

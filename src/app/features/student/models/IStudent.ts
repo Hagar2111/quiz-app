@@ -25,7 +25,7 @@ export interface IQuizRes {
   __v: number
   participants?: number
   closed_at?: string
-
+  studentsEnrolled: number
 
 }
 
