@@ -14,4 +14,7 @@ export class DisplayResultComponent {
     @Inject(MAT_DIALOG_DATA) public data:IQuizResult & {totalScore: number, questionScore: number},
   ){}
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

@@ -1,5 +1,7 @@
-<section class="text-center p-4">
-    <h2 class="fw-bold">Join Quiz</h2>
+<section class="text-center d-flex flex-column justify-content-between ">
+    
+    <h2 class="fw-bold mb-4">Join Quiz</h2>
+    <p>Input the code received for the quiz below to join</p>
     <div class="view-group">
         <div class="prefix">
             <label class="m-0 p-2 px-3" for="code">CODE: </label>
@@ -10,8 +12,8 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center gap-1 mb-0 mt-3">
-        <button (click)="dialogRef.close()" class="reset-btn"><i class="fa-solid fa-x"></i></button>
-        <button (click)="joinQuiz()" [disabled]="code.invalid" class="reset-btn"><i class="fa-solid fa-check"></i></button>
+    <div class=" d-flex justify-content-center align-items-end  mb-0 mt-3">
+        <button (click)="dialogRef.close()" class="reset-btn cancel"><i class="fa-solid fa-x"></i></button>
+        <button (click)="joinQuiz()" [disabled]="code.invalid" class="reset-btn primary"><i class="fa-solid fa-check"></i></button>
     </div>
 </section>

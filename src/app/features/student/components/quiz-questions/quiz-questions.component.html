@@ -25,10 +25,10 @@
                             </div>
                             <div class="d-flex align-items-center justify-content-evenly m-2">
                                 <button type="button" mat-button matStepperPrevious *ngIf="i !== 0">Back</button>
-                                <button type="button" mat-button (click)="changeQuestionFlag(question._id, 'Uncertain')">uncertain</button>
-                                <button type="button" mat-button matStepperNext
+                                <button type="button " mat-button (click)="changeQuestionFlag(question._id, 'Uncertain')">uncertain</button>
+                                <button type="button " class="primary" mat-button matStepperNext
                                     *ngIf="i !== questions.length - 1">Next</button>
-                                <button type="submit" mat-button *ngIf="i === questions.length - 1" (click)="submitQuiz()" [disabled]="checkValidation()">Submit</button>
+                                <button type="submit" class="secondary" mat-button *ngIf="i === questions.length - 1" (click)="submitQuiz()" [disabled]="checkValidation()">Submit</button>
                             </div>
 
                         </div>

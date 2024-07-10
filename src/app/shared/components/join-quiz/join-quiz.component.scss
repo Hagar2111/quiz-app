@@ -1,0 +1,27 @@
+@import'../../../../assets/styles/components/button';
+@import'../../../../assets/styles/components/popup-input.scss';
+@import'../../../../assets/styles/abstracts/variables';
+
+
+section{
+    width: 40vw;
+    height: 40vh;
+    padding: 2rem 2rem 0 2rem;
+
+    label{
+        border-radius: 0 10px 10px 0;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #000000;
+        background-color: $primary-color ;
+    }
+    button{
+        border: 0.5px solid rgb(0, 0, 0,0.5);
+        padding: 1.5rem;
+
+        i{
+            font-weight: bold;
+        }
+    }
+}
