@@ -1,4 +1,4 @@
-type IOptionKeys = "A" | "B" | "C" | "D";
+export type IOptionKeys = "A" | "B" | "C" | "D";
 
 type IOptions = {[key in IOptionKeys]: string} & {_id?: string};
 

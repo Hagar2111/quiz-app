@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { HomeService } from '../../instructor/dashboard/modules/home/services/home.service';
 import { AllQuiz } from '../models/IStudent';
 import { StudentService } from '../services/student.service';
+import { MatDialog } from '@angular/material/dialog';
+import { JoinQuizComponent } from 'src/app/shared/components/join-quiz/join-quiz.component';
 
 @Component({
   selector: 'app-quiz',
@@ -16,7 +18,7 @@ export class QuizComponent implements OnInit{
 
 
 
-  constructor(private _StudentService:StudentService,private _ToastrService:ToastrService,private _HomeService:HomeService){}
+  constructor(private _StudentService:StudentService,private _ToastrService:ToastrService,private _HomeService:HomeService, private dialog: MatDialog){}
 
   ngOnInit(): void {
 
@@ -47,7 +49,9 @@ export class QuizComponent implements OnInit{
     })
   }
 
-
+  onJoinQuiz() {
+    const dialogRef = this.dialog.open(JoinQuizComponent);
+  }
 
 
 }
