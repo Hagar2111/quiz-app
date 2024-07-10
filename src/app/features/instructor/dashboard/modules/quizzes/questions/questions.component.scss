@@ -1,4 +1,6 @@
 @import '../../../../../../../assets/styles/components/buttons.scss';
+@import '../../../../../../../assets/styles/components/_results-tables';
+
 
 /*
 .questions-holder{
@@ -30,6 +32,12 @@
   */
 
 
+  tbody{
+    td{
+      i{
+        cursor: pointer;
+      }
+    }
+  }
 
-@import '../../../../../../../assets/styles/components/_results-tables';
 

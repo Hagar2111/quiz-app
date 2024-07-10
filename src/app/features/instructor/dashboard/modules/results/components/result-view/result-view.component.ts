@@ -31,7 +31,9 @@ export class ResultViewComponent {
     private _ResultsService:ResultsService, 
     private _ToastrService:ToastrService,
     private _Router:Router
-  ){}
+  ){
+    this.getAllParticipants();
+  }
 
   
   GoToDashBoard(){
@@ -44,7 +46,8 @@ export class ResultViewComponent {
       next: (res) => {
         this.allResults = res;
       // Extract participants from all quizzes
-        this.participants = this.allResults.flatMap(result => result.participants);      
+        this.participants = this.allResults.flatMap(result => result.participants); 
+        console.log(this.participants);     
       },
       error: (err) => {
         this._ToastrService.error(err.error.message);
