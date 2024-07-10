@@ -84,15 +84,7 @@ export class RegisterComponent {
         }
 
   
-    handleSignUpClick(): void {
-      this.clickCount++;
-      if (this.clickCount === 4) {
-        this.registerForm.patchValue({ role: 'Instructor' });
-        this._ToastrService.success('Sign up as instructor')
-
-        this.clickCount = 0; // reset the counter
-      }
-    }
+   
 
 
 
