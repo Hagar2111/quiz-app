@@ -1,0 +1,17 @@
+@import '../../../../../assets/styles/abstracts/variables';
+@import '../../../../../assets/styles/components/button';
+
+section{
+    padding: 2rem;
+    i{
+        color: $green-color;
+    }
+    
+    button{
+        color: #000;
+        border-radius: 20px;
+        padding: 10px;
+        background-color:$green-color ;
+    }
+
+}

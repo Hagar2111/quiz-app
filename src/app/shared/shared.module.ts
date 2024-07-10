@@ -54,7 +54,7 @@ export const MY_DATE_FORMATS = {
     JoinQuizComponent,
     SharedHeaderComponent,
     NoDataComponent,
-    NoFoundPageComponent
+    NoFoundPageComponent,
   ],
   imports: [
     CommonModule,
@@ -76,7 +76,7 @@ export const MY_DATE_FORMATS = {
     MatNativeDateModule,
     NgxMaterialTimepickerModule,
     ClipboardModule,
-    MatStepperModule
+    MatStepperModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -102,7 +102,7 @@ export const MY_DATE_FORMATS = {
     ClipboardModule,
     NoDataComponent,
     QuizCardComponent,
-    MatStepperModule
+    MatStepperModule,
   ],
   providers: [
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
