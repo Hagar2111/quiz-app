@@ -29,7 +29,7 @@
                     <td>{{quiz.participants}}</td>
                     <td>{{quiz.schadule.slice(0,10)}}</td>
                     <td>
-                        <i   class="fa-regular fa-eye me-3 text-success"></i>
+                        <i [routerLink]="['../quiz-details', quiz._id]"  class="fa-regular fa-eye me-3 text-success"></i>
                         <i  class="fa-regular fa-pen-to-square me-3 text-warning"></i>
                         <i  class="fa-regular fa-trash-can text-danger"></i>
             
