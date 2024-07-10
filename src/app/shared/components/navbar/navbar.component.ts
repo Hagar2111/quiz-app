@@ -36,12 +36,12 @@ export class NavbarComponent {
   };
   items: any[] = [];
 
-  
+
   @Input() sidebarCollapsed: boolean = false;
   @Output() closeSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
-    private _Router: Router, 
+    private _Router: Router,
     private _AuthService: AuthService,
     private _ToastrService: ToastrService,
     public dialog: MatDialog
@@ -56,7 +56,7 @@ export class NavbarComponent {
   getLoggedInUserData(): void {
     this._AuthService.loggedInUser$.subscribe((loggedInUser: ILogin) => {
       this.loggedInUser = loggedInUser;
-      
+
     });
   }
 
@@ -64,7 +64,7 @@ export class NavbarComponent {
   private handleRouteChange(): void {
     const fullPath = this._Router.url;
 
-  
+
     const segments = fullPath.split('/');
 
     if (segments.length > 0) {
@@ -73,15 +73,15 @@ export class NavbarComponent {
       if(specificSegment=='quezzes' || specificSegment=='result-view' || specificSegment=='listQuiz' || specificSegment.split('').length > 19) {
         specificSegment='Quizzes'
       }
-        
+
       this.routePath = specificSegment;
     }
   }
 
-  
+
   handleRouteEvents(): void {
     this._Router.events
-      .pipe(filter((event) => event instanceof NavigationEnd)) 
+      .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.handleRouteChange();
       });
@@ -92,22 +92,22 @@ export class NavbarComponent {
     this.closeSidebar.emit(this.sidebarCollapsed);
   }
 
-  
+
   logout(): void {
     localStorage.clear();
     this._Router.navigate(['/auth/login']);
   }
 
 
-  
+
 
 
   onUpdateProfile(): void {
     const dialogRef = this.dialog.open(UpdateProfileComponent, {
-      
+
     });
 
-    dialogRef.afterClosed().subscribe(result => { 
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       // this.getAllQuestions()
     });
