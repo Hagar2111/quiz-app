@@ -12,7 +12,7 @@
              <div
               class="d-inline check p-4
                border-start d-flex justify-content-center align-items-center ">
-               <button type="submit" class="btn">
+               <button type="submit" class="btn" [mat-dialog-close]="data">
                  <span class="mx-1 "> <i class="fa-solid fa-check"></i> </span>
                </button>
 
@@ -93,12 +93,13 @@
             <label class="fs-6">No. of questions</label>
             <mat-select disableRipple formControlName="questions_number" >
               <mat-option value="1">1</mat-option>
-              <mat-option value="10">10</mat-option>
-              <mat-option value="15">15</mat-option>
-              <mat-option value="20">20</mat-option>
+              <mat-option value="2">2</mat-option>
+              <mat-option value="3">3</mat-option>
+              <mat-option value="4">4</mat-option>
+              <mat-option value="5">5</mat-option>
             </mat-select>
           </div>
-          
+
           <div
           *ngIf="
             quizzForm.get('questions_number')?.errors &&
@@ -327,6 +328,4 @@
       </div>
     </form>
   </div>
-
-  <button class="secondary" (click)=" onNoClick()" (click)="openResponseDialog()">open</button>
 </section>

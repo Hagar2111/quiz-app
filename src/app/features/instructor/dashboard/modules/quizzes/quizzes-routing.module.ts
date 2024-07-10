@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'quiz-details/:id', component: QuizDetailsComponent , title: 'Quiz details'},
   { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule), title: 'Questions'},
   {path:'listQuiz',component:ListQuizComponent , title: 'List Quiz'},
-  {path: '**' , component: NoFoundPageComponent , title: 'Error 404!'}
 
 ];
 

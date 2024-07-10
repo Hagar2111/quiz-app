@@ -1,0 +1,17 @@
+<section class="text-center p-4">
+    <h2 class="fw-bold">Join Quiz</h2>
+    <div class="view-group">
+        <div class="prefix">
+            <label class="m-0 p-2 px-3" for="code">CODE: </label>
+        </div>
+        <div class="view-content">
+            <input class="text-black h-100" id="code" matInput placeholder="Enter text to copy" [formControl]="code"
+                required="">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center gap-1 mb-0 mt-3">
+        <button (click)="dialogRef.close()" class="reset-btn"><i class="fa-solid fa-x"></i></button>
+        <button (click)="joinQuiz()" [disabled]="code.invalid" class="reset-btn"><i class="fa-solid fa-check"></i></button>
+    </div>
+</section>

@@ -5,8 +5,9 @@ import { GroupsService } from '../../../groups/services/groups.service';
 import { IAllGroups } from '../../../groups/models/iall-groups';
 import { QuezzesService } from '../../services/quezzes.service';
 import { ToastrService } from 'ngx-toastr';
-import { IQuizResponse } from '../../models/IQuizzes';
+import { IQuizResponse, IquizDetails } from '../../models/IQuizzes';
 import { ResponseComponent } from '../response/response.component';
+import { ICurrentQuizz } from '../../models/icurrent-quizz';
 
 @Component({
   selector: 'app-add-edit-quizz',
@@ -22,7 +23,8 @@ export class AddEditQuizzComponent implements OnInit{
   timeControl = new FormControl('');
   groupsList: IAllGroups[] = []
   responseCode: string= ''
-
+  quizzId: string= ''
+  currentQuizz!: ICurrentQuizz
 
   constructor(
     public dialogRef: MatDialogRef<AddEditQuizzComponent>,
@@ -35,6 +37,13 @@ export class AddEditQuizzComponent implements OnInit{
 
 
   ngOnInit(): void {
+    if(this.data.id){
+      this.quizzId= this.data.id
+      this.header = 'Update your quizz'
+      this.getCurrentQuiz()
+    }else{
+      this.header = 'Set up a new quizz'
+    }
     this.getAllGroups()
   }
 
@@ -44,7 +53,31 @@ export class AddEditQuizzComponent implements OnInit{
         // console.log(res);
         this.groupsList = res
         console.log(this.groupsList);
-        
+      }
+    })
+  }
+
+  getCurrentQuiz(){
+    this._QuezzesService.getQuizById(this.quizzId).subscribe({
+      next: (res)=>{
+        console.log('current quizz',res);
+        this.currentQuizz = res
+      },
+      error:(err)=>{
+        console.log(err);
+      },
+      complete:()=>{
+        this.quizzForm.patchValue({
+          title: this.currentQuizz.title,
+          description: this.currentQuizz.description,
+          group: this.currentQuizz.group,
+          questions_number: this.currentQuizz.questions_number.toString(),
+          difficulty: this.currentQuizz.difficulty,
+          type: this.currentQuizz.type,
+          schadule: this.currentQuizz.schadule,
+          duration: this.currentQuizz.duration.toString(),
+          score_per_question: this.currentQuizz.score_per_question.toString()
+        })
       }
     })
   }
@@ -66,16 +99,16 @@ export class AddEditQuizzComponent implements OnInit{
   //   const time = this.timeControl.value;
   //   const dateTime = `${date}${time}`
 
-    
+
   //   // const [hours, minutes, seconds] = time!.split(':').map(Number);
   //   // dateTime.setHours(hours, minutes, seconds);
 
   //   // console.log(date?.toString().split(':'));
   //   console.log(date);
-    
+
   //   console.log(dateTime.toString().split(':'));
   //   console.log(dateTime);
-    
+
   // }
 
   sendQuizzData():void{
@@ -85,18 +118,30 @@ export class AddEditQuizzComponent implements OnInit{
 
     // this.quizzForm.get('schadule')?.setValue(dateTime)
 
-    this._QuezzesService.onAddQuiz(this.quizzForm.value).subscribe({
-      next: (res)=>{
-        this.responseCode = res.data.code
-        this._ToastrService.success(res.message);
-      },error:(err)=>{
-        this._ToastrService.error(err.error.message)
-      },
-      complete:()=>{
-        this.onNoClick()
-        this.openResponseDialog()
-      }
-    })
+    if(this.data.id){
+      this._QuezzesService.updateQuiz( this.quizzId, this.quizzForm.value).subscribe({
+        next: (res)=>{
+          console.log(res);
+          this._ToastrService.success(res.message)
+        },error: (err)=>{
+          console.log(err);
+          this._ToastrService.error(err.error.message)
+        }
+      })
+    }else{
+      this._QuezzesService.onAddQuiz(this.quizzForm.value).subscribe({
+        next: (res)=>{
+          this.responseCode = res.data.code
+          this._ToastrService.success(res.message);
+        },error:(err)=>{
+          this._ToastrService.error(err.error.message)
+        },
+        complete:()=>{
+          this.onNoClick()
+          this.openResponseDialog()
+        }
+      })
+    }
 
   }
 
@@ -104,14 +149,14 @@ export class AddEditQuizzComponent implements OnInit{
 
   openResponseDialog(): void {
     const dialogRef = this.dialog.open(ResponseComponent, {
-      
+
     data: this.responseCode
       //  this.quizzResponse.data.code
     });
 
-    dialogRef.afterClosed().subscribe(result => { 
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
+
     });
   }
 

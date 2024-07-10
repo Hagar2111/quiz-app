@@ -1,0 +1,9 @@
+
+.mat-horizontal-stepper-header{
+    &.mat-step-header{
+        .mat-step-icon{
+            // justify-content: stretch;
+            display: none;
+        }
+    }
+}

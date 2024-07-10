@@ -41,6 +41,7 @@ export interface IquizDetails{
     createdAt:string;
     __v:number;
     closed_at:string;
+    // participants: number;
     participants?: number
 
 }
@@ -60,3 +61,4 @@ export interface IUpdateQuiz{
     duration:string,
     score_per_question:string
   }
+

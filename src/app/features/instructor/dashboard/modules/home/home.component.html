@@ -10,6 +10,11 @@
                 </div>
                 <div class="card-body">
                     <ng-container *ngIf="incommingQuiz.length">
+
+                        <ng-container *ngFor="let quiz of incommingQuiz">
+                            <app-quiz-card [quiz]="quiz"></app-quiz-card>
+                        </ng-container>
+
                         <div class="view-group my-3" *ngFor="let quiz of incommingQuiz">
                             <div class="prefix  fs-2">
                                 <img src="../../../../../../assets/imgs/Quiz img.png" class=" " width="120px"
@@ -38,6 +43,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </ng-container>
                     <ng-container *ngIf="!incommingQuiz.length">
 
