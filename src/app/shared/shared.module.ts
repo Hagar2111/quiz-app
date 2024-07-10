@@ -51,7 +51,7 @@ export const MY_DATE_FORMATS = {
     SidebarComponent,
     DeletePopupComponent,
     QuizCardComponent,
-    JoinQuizComponent
+    JoinQuizComponent,
     SharedHeaderComponent,
     NoDataComponent,
     NoFoundPageComponent
