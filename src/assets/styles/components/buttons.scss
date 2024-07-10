@@ -58,6 +58,21 @@ button {
         color: $color-red ;
       }
      }
+     &.next {
+      border-radius: 4px;
+      padding: 0 20px;
+      border: 1px solid $green-color;
+      color: white;
+      background-color: $green-color ;
+
+      transition: 0.4s ;
+
+      &:hover {
+        border: 1px solid $green-color;
+       background-color: white ;
+        color: $green-color ;
+      }
+     }
 
     &.cancel {
       border-radius: 4px;
