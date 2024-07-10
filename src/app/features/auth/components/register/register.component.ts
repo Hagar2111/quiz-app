@@ -32,7 +32,7 @@ export class RegisterComponent {
       email:new FormControl('',[Validators.required,Validators.email]),
       password:new FormControl('',[Validators.required,Validators.pattern(/^.{3,}$/)]) ,//  password contains at least 3 characters long.
       confirmPassword:['',[RxwebValidators.compare({fieldName:'password'}),Validators.required]],
-      role:new FormControl('Student'),
+      role:new FormControl('',[Validators.required]),
     },
 
   {

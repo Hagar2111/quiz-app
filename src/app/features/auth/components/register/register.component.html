@@ -172,6 +172,49 @@
                   </div>
                 </div>
 
+                     <!--role-->
+                     <div class="col-12">
+                      <div class="mt-1 ">
+                        <label for="role">Your role</label>
+                        <div class="input-group">
+                          <i class="fa-solid fa-envelope"></i>
+                      
+
+                          <select name="" id="role" formControlName="role"   class="form-control bg-transparent text-white"
+                          placeholder="your role">
+                            <option selected value="Student" class="bg-dark text-white">Student</option>
+                            <option value="Instructor" class="bg-dark text-white">Instructor</option>
+
+                          </select>
+
+
+                        </div>
+                      </div>
+    
+                      <div
+                        *ngIf="
+                          registerForm.get('role')?.errors &&
+                          registerForm.get('role')?.touched
+                        "
+                        class="d-flex align-items-center mt-1"
+                      >
+                        <img
+                        src="../../../../../assets/imgs/invalid.png"
+                        width="22"
+                          height="22"
+                          alt
+                          class="mx-2"
+                        />
+                        <p
+                          *ngIf="registerForm.get('role')?.getError('required')"
+                          class="m-0 text-danger"
+                        >
+                         role is required
+                        </p>
+                    
+                      </div>
+                    </div>
+
                                     <!--password-->
 
 

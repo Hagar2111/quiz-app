@@ -17,7 +17,6 @@
 
 input{
     background-color:  transparent;
-    //padding: 14px 10px;
     color:#fff !important;
     border: none;
     color: $primary-color !important;
@@ -36,3 +35,72 @@ input{
     }
 
 }
+
+/*
+select {
+    background-color: transparent;
+    color: #fff !important;
+    border: none;
+    color: $primary-color !important;
+    appearance: none; // Removes the default arrow
+
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        background-color: transparent;
+    }
+
+    &::placeholder {
+        color: white;
+        font-size: 14px;
+        line-height: 19.1px;
+        font-weight: 300;
+    }
+}
+
+option {
+    background-color: transparent;
+    color: $primary-color !important;
+
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        background-color: transparent;
+    }
+
+    &::placeholder {
+        color: white;
+        font-size: 14px;
+        line-height: 19.1px;
+        font-weight: 300;
+    }
+}*/
+
+select {
+    background-color: transparent;
+    color: $primary-color !important;
+    border: none;
+    appearance: none; // Removes the default arrow
+    background-image: none; // Ensures no default dropdown styling is applied
+
+
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        background-color: transparent;
+    }
+
+    option {
+        background-color: transparent;
+        color: $primary-color !important;
+
+        &:focus {
+            background-color: transparent !important;
+        }
+
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+}
+
