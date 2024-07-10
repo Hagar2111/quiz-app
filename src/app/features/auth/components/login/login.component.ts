@@ -44,6 +44,8 @@ export class LoginComponent {
           //first_name
           localStorage.setItem('token',this.loginResponse.data.accessToken)
           localStorage.setItem('first_name',this.loginResponse.data.profile.first_name)
+          localStorage.setItem('last_name',this.loginResponse.data.profile.last_name)
+          localStorage.setItem('email',this.loginResponse.data.profile.email)
 
           localStorage.setItem('userId',this.loginResponse.data.profile._id)
           localStorage.setItem('role',this.loginResponse.data.profile.role)
