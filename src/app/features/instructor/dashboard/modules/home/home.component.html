@@ -2,18 +2,19 @@
     <div class="row  g-4">
         <div class="col-lg-6">
 
-            <div class="home-card">
+            <div class="home-card  mb-5">
                 <div class="card-header">
-                    <h5>Upcoming 5 quizzes </h5>
+                    <h5>Upcoming  quizzes </h5>
                     <a routerLink="/instructor/dashboard/quizzes">All quizzes <span><i
                                 class="fa-solid fa-arrow-right"></i></span></a>
                 </div>
                 <div class="card-body">
                     <ng-container *ngIf="incommingQuiz.length">
 
+                        <!-- 
                         <ng-container *ngFor="let quiz of incommingQuiz">
                             <app-quiz-card [quiz]="quiz"></app-quiz-card>
-                        </ng-container>
+                        </ng-container>  -->
 
                         <div class="view-group my-3" *ngFor="let quiz of incommingQuiz">
                             <div class="prefix  fs-2">
